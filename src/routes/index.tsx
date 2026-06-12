@@ -14,7 +14,7 @@ function Index() {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (
-    <div className="min-h-screen bg-flow-dark text-white selection:bg-flow-yellow selection:text-black flex">
+    <div className="min-h-screen bg-background text-foreground selection:bg-flow-yellow selection:text-black flex transition-colors duration-300">
       <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
 
       <div 
@@ -24,19 +24,11 @@ function Index() {
         )}
       >
         <main>
-          {/* Ad Placeholder */}
-          <div className="container mx-auto px-4 py-8">
-            <div className="w-full h-[150px] bg-gray-900/50 rounded-sm border border-white/5 flex items-center justify-center overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop" 
-                className="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all cursor-pointer" 
-                alt="Promo Banner"
-              />
-            </div>
+          {/* Featured News Grid (Moved up, margin reduced) */}
+          <div className="pt-8">
+            <FeaturedNewsGrid />
           </div>
 
-          {/* Featured News Grid (Replaces Hero Banner) */}
-          <FeaturedNewsGrid />
 
           {/* Featured Grid */}
           <section className="container mx-auto px-4 mb-16">
