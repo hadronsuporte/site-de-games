@@ -3,17 +3,26 @@ import { Footer } from "@/components/Footer";
 import { HeroBanner, NewsCard } from "@/components/NewsComponents";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
 function Index() {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
   return (
     <div className="min-h-screen bg-flow-dark text-white selection:bg-flow-yellow selection:text-black flex">
-      <Sidebar />
+      <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
 
-      <div className="flex-1 transition-all duration-300 ml-[260px] has-[aside.w-\[70px\]]:ml-[70px]">
+      <div 
+        className={cn(
+          "flex-1 transition-all duration-300",
+          isCollapsed ? "ml-[70px]" : "ml-[260px]"
+        )}
+      >
+
         <main>
           {/* Ad Placeholder */}
           <div className="container mx-auto px-4 py-8">
