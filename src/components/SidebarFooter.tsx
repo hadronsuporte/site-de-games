@@ -1,15 +1,31 @@
-import { Globe, ChevronDown } from "lucide-react";
+import { Globe, ChevronDown, Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTheme } from "./ThemeProvider";
 
 interface SidebarFooterProps {
   collapsed?: boolean;
 }
 
 export function SidebarFooter({ collapsed }: SidebarFooterProps) {
+  const { theme, toggleTheme } = useTheme();
+
   return (
-    <div className={cn("p-4 border-t border-[#ddd] mt-auto bg-[#f3f3f3]", collapsed && "flex justify-center px-0")}>
+    <div className={cn("p-4 border-t border-border mt-auto bg-sidebar dark:border-[#ddd] dark:bg-[#f3f3f3]", collapsed && "flex flex-col items-center px-0 gap-2")}>
+      <button 
+        onClick={toggleTheme}
+        className={cn(
+          "flex items-center gap-2 w-full px-3 py-2 text-muted-foreground hover:bg-muted hover:text-foreground rounded-lg transition-all text-xs font-bold uppercase italic dark:text-[#555] dark:hover:bg-[#ebebeb] dark:hover:text-black",
+          collapsed && "justify-center px-0"
+        )}
+      >
+        {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+        {!collapsed && (
+          <span className="flex-1 text-left">{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
+        )}
+      </button>
+
       <button className={cn(
-        "flex items-center gap-2 w-full px-3 py-2 text-[#555] hover:bg-[#ebebeb] hover:text-black rounded-lg transition-all text-xs font-bold uppercase italic",
+        "flex items-center gap-2 w-full px-3 py-2 text-muted-foreground hover:bg-muted hover:text-foreground rounded-lg transition-all text-xs font-bold uppercase italic dark:text-[#555] dark:hover:bg-[#ebebeb] dark:hover:text-black",
         collapsed && "justify-center px-0"
       )}>
         <Globe size={18} />
@@ -23,3 +39,4 @@ export function SidebarFooter({ collapsed }: SidebarFooterProps) {
     </div>
   );
 }
+
