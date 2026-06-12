@@ -117,15 +117,6 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return null;
-  }
 
   return (
     <ThemeProvider>
@@ -135,6 +126,7 @@ function RootComponent() {
     </ThemeProvider>
   );
 }
+
 
 
 
