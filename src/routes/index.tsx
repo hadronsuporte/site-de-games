@@ -23,11 +23,12 @@ function Index() {
           isCollapsed ? "ml-[70px]" : "ml-[260px]"
         )}
       >
-        <main>
+        <main className="bg-background">
           {/* Featured News Grid (Moved up, margin reduced) */}
           <div className="pt-8">
             <FeaturedNewsGrid />
           </div>
+
 
 
           {/* Featured Grid */}
