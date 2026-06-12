@@ -47,14 +47,14 @@ export function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
   return (
     <aside 
       className={cn(
-        "fixed left-0 top-0 h-screen bg-sidebar border-r border-border flex flex-col transition-all duration-300 z-50 dark:bg-[#f3f3f3] dark:border-[#ddd]",
+        "fixed left-0 top-0 h-screen bg-sidebar border-r border-border flex flex-col transition-all duration-300 z-50",
         isCollapsed ? "w-[70px]" : "w-[260px]"
       )}
     >
       {/* Retractable Button */}
       <button 
         onClick={() => setIsCollapsed(!isCollapsed)}
-        className="absolute -right-3 top-10 bg-background border border-border rounded-full p-1 text-muted-foreground hover:text-foreground shadow-sm z-[60] transition-transform hover:scale-110 dark:bg-white dark:border-[#ddd] dark:text-[#555] dark:hover:text-black"
+        className="absolute -right-3 top-10 bg-background border border-border rounded-full p-1 text-muted-foreground hover:text-foreground shadow-sm z-[60] transition-transform hover:scale-110 dark:hover:text-black"
       >
         {isCollapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
       </button>
@@ -62,13 +62,13 @@ export function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
       {/* Logo */}
       <div className={cn("p-6 mb-2", isCollapsed && "flex justify-center p-4")}>
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="relative w-8 h-8 bg-foreground flex items-center justify-center rounded-sm transition-transform group-hover:scale-105 flex-shrink-0 dark:bg-[#121212]">
-            <span className="text-background font-black text-lg italic dark:text-[#f3f3f3]">F</span>
+          <div className="relative w-8 h-8 bg-foreground flex items-center justify-center rounded-sm transition-transform group-hover:scale-105 flex-shrink-0">
+            <span className="text-background font-black text-lg italic">F</span>
           </div>
           {!isCollapsed && (
             <div className="flex flex-col -gap-1">
-              <span className="text-foreground font-black text-xl tracking-tighter leading-none italic dark:text-[#121212]">FLOW</span>
-              <span className="text-foreground font-black text-xl tracking-tighter leading-none italic dark:text-[#121212]">GAMES</span>
+              <span className="text-foreground font-black text-xl tracking-tighter leading-none italic">FLOW</span>
+              <span className="text-foreground font-black text-xl tracking-tighter leading-none italic">GAMES</span>
             </div>
           )}
         </Link>
