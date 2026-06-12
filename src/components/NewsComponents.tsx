@@ -47,7 +47,7 @@ export function NewsCard({ category, title, author, date, image, horizontal }: N
       <h3 className="text-[19px] font-black leading-tight mb-3 group-hover:text-flow-yellow transition-colors italic tracking-tight">
         {title}
       </h3>
-      <div className="flex items-center gap-4 text-[9px] text-white/50 font-black uppercase tracking-wider">
+      <div className="flex items-center gap-4 text-[9px] text-foreground/50 font-black uppercase tracking-wider">
         <div className="flex items-center gap-1.5">
           <User className="w-3 h-3 text-flow-yellow/70" />
           <span>Por {author}</span>

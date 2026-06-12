@@ -41,8 +41,9 @@ const defaultNews: FeaturedNewsCard[] = [
 
 export function FeaturedNewsGrid({ news = defaultNews }: FeaturedNewsGridProps) {
   return (
-    <section className="container mx-auto px-4 mb-12">
+    <section className="container mx-auto px-4 mb-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
         {news.slice(0, 4).map((item) => (
           <div 
             key={item.id}
