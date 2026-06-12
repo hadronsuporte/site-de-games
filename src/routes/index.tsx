@@ -17,15 +17,9 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  return (
 
-  if (!isMounted) {
-    return null;
-  }
 
 
 
