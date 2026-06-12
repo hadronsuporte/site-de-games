@@ -5,7 +5,6 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
 import { ThemeProvider } from "../components/ThemeProvider";
 import appCss from "../styles.css?url";
 
@@ -23,27 +22,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return (
-      <html lang="pt-BR">
-        <head>
-          <HeadContent />
-        </head>
-        <body className="bg-[#121212]">
-          <Scripts />
-        </body>
-      </html>
-    );
-  }
 
   return (
-    <html lang="pt-BR" className="dark">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>

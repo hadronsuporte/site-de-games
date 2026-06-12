@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { NewsCard } from "@/components/NewsComponents";
 import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
@@ -12,15 +12,6 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return null;
-  }
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-flow-yellow selection:text-black flex transition-colors duration-300">
@@ -39,7 +30,7 @@ function Index() {
 
           <section className="container mx-auto px-4 mb-16">
             <div className="flex items-center justify-between mb-8 border-b border-border pb-4">
-              <h2 className="text-2xl font-black italic tracking-tighter">ÚLTIMAS NOTÍCIAS</h2>
+              <h2 className="text-2xl font-black italic tracking-tighter uppercase">Últimas Notícias</h2>
               <button className="text-[10px] font-black bg-muted hover:bg-flow-yellow hover:text-black px-4 py-2 rounded-sm transition-all uppercase">
                 Ver Tudo
               </button>
@@ -73,60 +64,6 @@ function Index() {
                 date="10.06.2026"
                 image="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop"
               />
-            </div>
-          </section>
-
-          <section className="bg-muted/30 py-16 mb-16">
-            <div className="container mx-auto px-4">
-              <div className="flex items-center gap-4 mb-12">
-                <div className="w-12 h-[2px] bg-flow-yellow" />
-                <h2 className="text-3xl font-black italic tracking-tighter">REVIEWS DE JOGOS</h2>
-              </div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div className="space-y-8">
-                  <NewsCard
-                    horizontal
-                    category="GAMES"
-                    title="Onde assistir a abertura da Copa do Mundo 2026?"
-                    author="Staff"
-                    date="Agora"
-                    image="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=2070&auto=format&fit=crop"
-                  />
-                  <NewsCard
-                    horizontal
-                    category="GAMES"
-                    title="Qual é o próximo jogo grátis da Epic Games Store?"
-                    author="Staff"
-                    date="Agora"
-                    image="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop"
-                  />
-                </div>
-                <div className="bg-muted/50 p-8 rounded-sm">
-                  <h3 className="text-sm font-black mb-6 border-b border-border pb-4">DESCOBRIR MAIS</h3>
-                  <ul className="space-y-4">
-                    {['Notícias da Capcom', 'podcasts', 'Jogos Resident Evil'].map((item) => (
-                      <li key={item} className="flex items-center justify-between group cursor-pointer border-b border-border/5 pb-4 hover:border-flow-yellow transition-colors">
-                        <span className="text-sm font-bold group-hover:text-flow-yellow uppercase">{item}</span>
-                        <span className="text-muted-foreground group-hover:text-flow-yellow">→</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="container mx-auto px-4 mb-16">
-            <div className="relative w-full aspect-[21/6] bg-purple-600 rounded-sm overflow-hidden flex items-center justify-center group cursor-pointer">
-              <img 
-                src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2070&auto=format&fit=crop" 
-                className="w-full h-full object-cover opacity-30 mix-blend-overlay transition-transform duration-1000 group-hover:scale-105" 
-                alt="Promo Banner"
-              />
-              <div className="absolute flex flex-col items-center text-center">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-black italic mb-4 tracking-tighter drop-shadow-2xl">FLOW GAMES CARDS</h2>
-                <button className="bg-white text-black font-black px-10 py-3.5 rounded-full hover:bg-flow-yellow transition-all hover:scale-105 shadow-xl uppercase text-sm tracking-widest">COMPRAR AGORA</button>
-              </div>
             </div>
           </section>
         </main>
