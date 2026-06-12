@@ -19,7 +19,7 @@ function Index() {
   }, []);
 
   if (!isMounted) {
-    return <div className="min-h-screen bg-[#121212]" />;
+    return <div className="min-h-screen bg-black" />;
   }
 
   return (
