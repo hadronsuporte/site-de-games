@@ -1,6 +1,7 @@
 import { Sidebar } from "@/components/Sidebar";
 import { Footer } from "@/components/Footer";
 import { HeroBanner, NewsCard } from "@/components/NewsComponents";
+import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -35,17 +36,9 @@ function Index() {
             </div>
           </div>
 
-          {/* Hero Section */}
-          <section className="container mx-auto px-4 mb-12">
-            <HeroBanner
-              category="GAMES"
-              title="Mais um! Valor Mortis é adiado e ganha nova data para outubro"
-              summary="Valor Mortis é mais um jogo adiado devido ao turbulento mês de setembro. Confira os detalhes sobre a nova data de lançamento e o que esperar."
-              author="Thais Bassani"
-              date="11.06.2026 às 15:00"
-              image="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop"
-            />
-          </section>
+        {/* Featured News Grid (Replaces Hero Banner) */}
+        <FeaturedNewsGrid />
+
 
           {/* Featured Grid */}
           <section className="container mx-auto px-4 mb-16">
