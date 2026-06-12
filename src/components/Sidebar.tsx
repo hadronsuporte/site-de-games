@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { 
   Home, 
   Gamepad2, 
@@ -21,9 +21,12 @@ import { SidebarSearch } from "./SidebarSearch";
 import { SidebarFooter } from "./SidebarFooter";
 import { Link } from "@tanstack/react-router";
 
-export function Sidebar() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+interface SidebarProps {
+  isCollapsed: boolean;
+  setIsCollapsed: (collapsed: boolean) => void;
+}
 
+export function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
   const menuItems = [
     { icon: <Home size={20} />, label: "Início", active: true },
     { icon: <Gamepad2 size={20} />, label: "PS5" },
