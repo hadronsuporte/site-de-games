@@ -10,11 +10,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-
-
-
-
-
 function Index() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -28,11 +23,7 @@ function Index() {
   }
 
   return (
-
-
     <div className="min-h-screen bg-background text-foreground selection:bg-flow-yellow selection:text-black flex transition-colors duration-300">
-
-
       <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
 
       <div 
@@ -42,12 +33,10 @@ function Index() {
         )}
       >
         <main className="bg-background">
-          {/* Featured News Grid */}
           <div className="pt-6">
             <FeaturedNewsGrid />
           </div>
 
-          {/* Featured Grid */}
           <section className="container mx-auto px-4 mb-16">
             <div className="flex items-center justify-between mb-8 border-b border-border pb-4">
               <h2 className="text-2xl font-black italic tracking-tighter">ÚLTIMAS NOTÍCIAS</h2>
@@ -87,7 +76,6 @@ function Index() {
             </div>
           </section>
 
-          {/* Reviews Section */}
           <section className="bg-muted/30 py-16 mb-16">
             <div className="container mx-auto px-4">
               <div className="flex items-center gap-4 mb-12">
@@ -128,7 +116,6 @@ function Index() {
             </div>
           </section>
 
-          {/* Video Banner Placeholder */}
           <section className="container mx-auto px-4 mb-16">
             <div className="relative w-full aspect-[21/6] bg-purple-600 rounded-sm overflow-hidden flex items-center justify-center group cursor-pointer">
               <img 
@@ -142,12 +129,9 @@ function Index() {
               </div>
             </div>
           </section>
-
         </main>
-
         <Footer />
       </div>
     </div>
   );
 }
-

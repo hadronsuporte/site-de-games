@@ -13,6 +13,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
+    // Only run on client
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("theme") as Theme;
       if (saved) {
