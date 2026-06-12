@@ -119,7 +119,7 @@ function Index() {
 
         {/* Video Banner Placeholder */}
         <section className="container mx-auto px-4 mb-16">
-          <div className="w-full aspect-[21/6] bg-purple-600 rounded-sm overflow-hidden flex items-center justify-center">
+          <div className="relative w-full aspect-[21/6] bg-purple-600 rounded-sm overflow-hidden flex items-center justify-center">
              <img 
               src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop" 
               className="w-full h-full object-cover opacity-30 mix-blend-overlay" 
