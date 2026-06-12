@@ -84,7 +84,7 @@ function Index() {
                   <h3 className="text-lg font-black italic tracking-tighter uppercase">Reviews</h3>
                   <span className="h-px flex-1 bg-border ml-4" />
                 </div>
-                <div className="space-y-6">
+                <div className="space-y-3">
                   <ReviewCard
                     score="9.5"
                     title="Elden Ring: Shadow of the Erdtree - A obra-prima da FromSoftware"
