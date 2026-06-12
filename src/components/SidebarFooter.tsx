@@ -14,7 +14,7 @@ export function SidebarFooter({ collapsed }: SidebarFooterProps) {
       <button 
         onClick={toggleTheme}
         className={cn(
-          "flex items-center gap-2 w-full px-3 py-2 text-muted-foreground hover:bg-muted hover:text-foreground rounded-lg transition-all text-xs font-bold uppercase italic dark:hover:text-black",
+          "flex items-center gap-2 w-full px-3 py-2 text-muted-foreground hover:bg-muted hover:text-foreground rounded-lg transition-all text-xs font-bold uppercase italic",
           collapsed && "justify-center px-0"
         )}
       >
@@ -25,7 +25,7 @@ export function SidebarFooter({ collapsed }: SidebarFooterProps) {
       </button>
 
       <button className={cn(
-        "flex items-center gap-2 w-full px-3 py-2 text-muted-foreground hover:bg-muted hover:text-foreground rounded-lg transition-all text-xs font-bold uppercase italic dark:hover:text-black",
+        "flex items-center gap-2 w-full px-3 py-2 text-muted-foreground hover:bg-muted hover:text-foreground rounded-lg transition-all text-xs font-bold uppercase italic",
         collapsed && "justify-center px-0"
       )}>
         <Globe size={18} />

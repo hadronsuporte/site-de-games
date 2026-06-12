@@ -54,7 +54,7 @@ export function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
       {/* Retractable Button */}
       <button 
         onClick={() => setIsCollapsed(!isCollapsed)}
-        className="absolute -right-3 top-10 bg-background border border-border rounded-full p-1 text-muted-foreground hover:text-foreground shadow-sm z-[60] transition-transform hover:scale-110 dark:hover:text-black"
+        className="absolute -right-3 top-10 bg-background border border-border rounded-full p-1 text-muted-foreground hover:text-foreground shadow-sm z-[60] transition-transform hover:scale-110"
       >
         {isCollapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
       </button>
