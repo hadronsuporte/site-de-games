@@ -45,9 +45,9 @@ function Index() {
               </button>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,4fr)_minmax(0,1fr)] gap-8 lg:gap-10">
               {/* Coluna esquerda: notícias */}
-              <div className="lg:border-r lg:border-border lg:pr-10 xl:pr-12">
+              <div className="lg:border-r lg:border-border lg:pr-8 xl:pr-10">
                 <NewsRow
                   category="Reviews"
                   title="Review: Elden Ring: Shadow of the Erdtree é a perfeição em forma de DLC"
