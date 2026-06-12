@@ -118,8 +118,8 @@ interface NewsRowProps {
 
 export function NewsRow({ category, title, author, date, image }: NewsRowProps) {
   return (
-    <article className="group cursor-pointer py-6 border-b border-border last:border-b-0">
-      <div className="grid grid-cols-[140px_minmax(0,1fr)] sm:grid-cols-[200px_minmax(0,1fr)] gap-5 sm:gap-7">
+    <article className="group cursor-pointer py-5 border-b border-border last:border-b-0">
+      <div className="grid grid-cols-[110px_minmax(0,1fr)] sm:grid-cols-[160px_minmax(0,1fr)] gap-4 sm:gap-5">
         <div className="relative aspect-video overflow-hidden rounded-sm bg-muted">
           <img
             src={image}
@@ -129,13 +129,13 @@ export function NewsRow({ category, title, author, date, image }: NewsRowProps) 
           />
         </div>
         <div className="flex flex-col min-w-0">
-          <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest mb-2 text-[#c026d3]">
+          <span className="text-[10px] font-black uppercase tracking-widest mb-1.5 text-[#c026d3]">
             {category}
           </span>
-          <h3 className="text-lg sm:text-xl md:text-2xl font-black italic leading-[1.15] tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3 mb-4">
+          <h3 className="text-sm sm:text-base md:text-lg font-black italic leading-[1.2] tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3 mb-3">
             {title}
           </h3>
-          <div className="mt-auto pt-3 border-t border-border/70 flex items-center justify-between gap-3 text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-muted-foreground">
+          <div className="mt-auto pt-2.5 border-t border-border/70 flex items-center justify-between gap-3 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-muted-foreground">
             <span className="flex items-center gap-1.5 truncate">
               <span className="inline-block w-2 h-2 bg-[#c026d3]" />
               <span className="truncate">Por {author}</span>
@@ -157,21 +157,21 @@ interface ReviewCardProps {
 export function ReviewCard({ score, title, image }: ReviewCardProps) {
   return (
     <article className="group cursor-pointer">
-      <div className="relative aspect-video overflow-hidden rounded-sm bg-muted mb-3">
+      <div className="relative aspect-video overflow-hidden rounded-sm bg-muted mb-2.5">
         <img
           src={image}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute top-2 left-2 bg-flow-yellow text-black font-black italic text-lg px-2.5 py-0.5 rounded-sm shadow-lg tracking-tight">
+        <div className="absolute top-1.5 left-1.5 bg-flow-yellow text-black font-black italic text-sm px-2 py-0.5 rounded-sm shadow-lg tracking-tight">
           {score}
         </div>
       </div>
-      <span className="text-[10px] font-black uppercase tracking-widest text-[#c026d3] block mb-1.5">
+      <span className="text-[9px] font-black uppercase tracking-widest text-[#c026d3] block mb-1">
         Review
       </span>
-      <h4 className="text-[15px] font-black italic leading-snug tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3">
+      <h4 className="text-[13px] font-black italic leading-snug tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3">
         {title}
       </h4>
     </article>
