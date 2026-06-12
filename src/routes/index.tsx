@@ -119,18 +119,19 @@ function Index() {
 
         {/* Video Banner Placeholder */}
         <section className="container mx-auto px-4 mb-16">
-          <div className="relative w-full aspect-[21/6] bg-purple-600 rounded-sm overflow-hidden flex items-center justify-center">
+          <div className="relative w-full aspect-[21/6] bg-purple-600 rounded-sm overflow-hidden flex items-center justify-center group cursor-pointer">
              <img 
-              src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop" 
-              className="w-full h-full object-cover opacity-30 mix-blend-overlay" 
+              src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2070&auto=format&fit=crop" 
+              className="w-full h-full object-cover opacity-30 mix-blend-overlay transition-transform duration-1000 group-hover:scale-105" 
               alt="Promo Banner"
             />
             <div className="absolute flex flex-col items-center text-center">
-               <h2 className="text-5xl font-black italic mb-4">FLOW GAMES CARDS</h2>
-               <button className="bg-white text-black font-black px-8 py-3 rounded-full hover:bg-flow-yellow transition-colors">COMPRAR AGORA</button>
+               <h2 className="text-3xl md:text-5xl lg:text-6xl font-black italic mb-4 tracking-tighter drop-shadow-2xl">FLOW GAMES CARDS</h2>
+               <button className="bg-white text-black font-black px-10 py-3.5 rounded-full hover:bg-flow-yellow transition-all hover:scale-105 shadow-xl uppercase text-sm tracking-widest">COMPRAR AGORA</button>
             </div>
           </div>
         </section>
+
       </main>
 
       <Footer />
