@@ -132,7 +132,7 @@ export function NewsRow({ category, title, author, date, image }: NewsRowProps) 
           <span className="text-[10px] font-black uppercase tracking-widest mb-1.5 text-[#c026d3]">
             {category}
           </span>
-          <h3 className="text-sm sm:text-base md:text-lg font-black italic leading-[1.2] tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3 mb-3">
+          <h3 className="text-sm sm:text-base md:text-lg font-black italic leading-[1.25] tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3 mb-3 max-w-[28ch] sm:max-w-[30ch] md:max-w-[32ch]">
             {title}
           </h3>
           <div className="mt-auto pt-2.5 border-t border-border/70 flex items-center justify-between gap-3 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-muted-foreground">
@@ -157,22 +157,22 @@ interface ReviewCardProps {
 export function ReviewCard({ score, title, image }: ReviewCardProps) {
   return (
     <article className="group cursor-pointer flex items-start gap-3">
-      <div className="relative w-20 sm:w-24 aspect-video flex-shrink-0 overflow-hidden rounded-sm bg-muted">
+      <div className="relative w-28 sm:w-32 aspect-video flex-shrink-0 overflow-hidden rounded-sm bg-muted">
         <img
           src={image}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute top-1 left-1 bg-flow-yellow text-black font-black italic text-[10px] px-1 py-0.5 rounded-sm shadow-lg tracking-tight">
+        <div className="absolute top-1 left-1 bg-flow-yellow text-black font-black italic text-xs px-1.5 py-0.5 rounded-sm shadow-lg tracking-tight">
           {score}
         </div>
       </div>
       <div className="flex flex-col min-w-0 pt-0.5">
-        <span className="text-[8px] font-black uppercase tracking-widest text-[#c026d3] mb-0.5">
-          Review
+        <span className="text-[10px] font-black uppercase tracking-widest text-[#c026d3] mb-1">
+          Reviews
         </span>
-        <h4 className="text-[11px] font-black italic leading-snug tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3">
+        <h4 className="text-[13px] sm:text-sm font-black italic leading-snug tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3">
           {title}
         </h4>
       </div>
