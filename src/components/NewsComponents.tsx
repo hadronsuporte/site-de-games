@@ -79,7 +79,7 @@ export function HeroBanner({ category, title, summary, author, date, image }: He
         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.02]"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/30 to-transparent" />
-      
+
       <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-14 lg:p-20">
         <div className="max-w-4xl border-l-[6px] border-flow-yellow pl-8">
           <span className="inline-block bg-flow-yellow text-black text-[10px] font-black px-2.5 py-1.5 rounded-sm uppercase mb-5 tracking-widest shadow-lg">
@@ -93,13 +93,13 @@ export function HeroBanner({ category, title, summary, author, date, image }: He
           </p>
           <div className="flex items-center gap-5 text-[10px] md:text-xs text-white/60 font-black uppercase tracking-widest">
             <span className="flex items-center gap-2">
-               <User className="w-4 h-4 text-flow-yellow" />
-               Por {author}
+              <User className="w-4 h-4 text-flow-yellow" />
+              Por {author}
             </span>
             <span className="w-1.5 h-1.5 bg-flow-yellow/50 rounded-full" />
             <span className="flex items-center gap-2">
-               <Clock className="w-4 h-4 text-flow-yellow" />
-               {date}
+              <Clock className="w-4 h-4 text-flow-yellow" />
+              {date}
             </span>
           </div>
         </div>
@@ -108,3 +108,72 @@ export function HeroBanner({ category, title, summary, author, date, image }: He
   );
 }
 
+interface NewsRowProps {
+  category: string;
+  title: string;
+  author: string;
+  date: string;
+  image: string;
+}
+
+export function NewsRow({ category, title, author, date, image }: NewsRowProps) {
+  return (
+    <article className="group cursor-pointer py-6 border-b border-border last:border-b-0">
+      <div className="grid grid-cols-[140px_minmax(0,1fr)] sm:grid-cols-[200px_minmax(0,1fr)] gap-5 sm:gap-7">
+        <div className="relative aspect-video overflow-hidden rounded-sm bg-muted">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+        <div className="flex flex-col min-w-0">
+          <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest mb-2 text-[#c026d3]">
+            {category}
+          </span>
+          <h3 className="text-lg sm:text-xl md:text-2xl font-black italic leading-[1.15] tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3 mb-4">
+            {title}
+          </h3>
+          <div className="mt-auto pt-3 border-t border-border/70 flex items-center justify-between gap-3 text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-muted-foreground">
+            <span className="flex items-center gap-1.5 truncate">
+              <span className="inline-block w-2 h-2 bg-[#c026d3]" />
+              <span className="truncate">Por {author}</span>
+            </span>
+            <span className="shrink-0">{date}</span>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+interface ReviewCardProps {
+  score: string;
+  title: string;
+  image: string;
+}
+
+export function ReviewCard({ score, title, image }: ReviewCardProps) {
+  return (
+    <article className="group cursor-pointer">
+      <div className="relative aspect-video overflow-hidden rounded-sm bg-muted mb-3">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          loading="lazy"
+        />
+        <div className="absolute top-2 left-2 bg-flow-yellow text-black font-black italic text-lg px-2.5 py-0.5 rounded-sm shadow-lg tracking-tight">
+          {score}
+        </div>
+      </div>
+      <span className="text-[10px] font-black uppercase tracking-widest text-[#c026d3] block mb-1.5">
+        Review
+      </span>
+      <h4 className="text-[15px] font-black italic leading-snug tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3">
+        {title}
+      </h4>
+    </article>
+  );
+}
