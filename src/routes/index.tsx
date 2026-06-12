@@ -1,6 +1,6 @@
 import { Sidebar } from "@/components/Sidebar";
 import { Footer } from "@/components/Footer";
-import { HeroBanner, NewsCard } from "@/components/NewsComponents";
+import { NewsCard } from "@/components/NewsComponents";
 import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
@@ -23,7 +23,6 @@ function Index() {
           isCollapsed ? "ml-[70px]" : "ml-[260px]"
         )}
       >
-
         <main>
           {/* Ad Placeholder */}
           <div className="container mx-auto px-4 py-8">
@@ -36,9 +35,8 @@ function Index() {
             </div>
           </div>
 
-        {/* Featured News Grid (Replaces Hero Banner) */}
-        <FeaturedNewsGrid />
-
+          {/* Featured News Grid (Replaces Hero Banner) */}
+          <FeaturedNewsGrid />
 
           {/* Featured Grid */}
           <section className="container mx-auto px-4 mb-16">
@@ -143,4 +141,3 @@ function Index() {
     </div>
   );
 }
-
