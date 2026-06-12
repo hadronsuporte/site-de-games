@@ -24,18 +24,16 @@ function Index() {
         )}
       >
         <main className="bg-background">
-          {/* Featured News Grid (Moved up, margin reduced) */}
-          <div className="pt-8">
+          {/* Featured News Grid */}
+          <div className="pt-6">
             <FeaturedNewsGrid />
           </div>
 
-
-
           {/* Featured Grid */}
           <section className="container mx-auto px-4 mb-16">
-            <div className="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
+            <div className="flex items-center justify-between mb-8 border-b border-border pb-4">
               <h2 className="text-2xl font-black italic tracking-tighter">ÚLTIMAS NOTÍCIAS</h2>
-              <button className="text-[10px] font-black bg-white/5 hover:bg-flow-yellow hover:text-black px-4 py-2 rounded-sm transition-all uppercase">
+              <button className="text-[10px] font-black bg-muted hover:bg-flow-yellow hover:text-black px-4 py-2 rounded-sm transition-all uppercase">
                 Ver Tudo
               </button>
             </div>
@@ -72,7 +70,7 @@ function Index() {
           </section>
 
           {/* Reviews Section */}
-          <section className="bg-white/5 py-16 mb-16">
+          <section className="bg-muted/30 py-16 mb-16">
             <div className="container mx-auto px-4">
               <div className="flex items-center gap-4 mb-12">
                 <div className="w-12 h-[2px] bg-flow-yellow" />
@@ -97,13 +95,13 @@ function Index() {
                     image="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop"
                   />
                 </div>
-                <div className="bg-white/5 p-8 rounded-sm">
-                  <h3 className="text-sm font-black mb-6 border-b border-white/10 pb-4">DESCOBRIR MAIS</h3>
+                <div className="bg-muted/50 p-8 rounded-sm">
+                  <h3 className="text-sm font-black mb-6 border-b border-border pb-4">DESCOBRIR MAIS</h3>
                   <ul className="space-y-4">
                     {['Notícias da Capcom', 'podcasts', 'Jogos Resident Evil'].map((item) => (
-                      <li key={item} className="flex items-center justify-between group cursor-pointer border-b border-white/5 pb-4 hover:border-flow-yellow transition-colors">
+                      <li key={item} className="flex items-center justify-between group cursor-pointer border-b border-border/5 pb-4 hover:border-flow-yellow transition-colors">
                         <span className="text-sm font-bold group-hover:text-flow-yellow uppercase">{item}</span>
-                        <span className="text-gray-500 group-hover:text-flow-yellow">→</span>
+                        <span className="text-muted-foreground group-hover:text-flow-yellow">→</span>
                       </li>
                     ))}
                   </ul>
