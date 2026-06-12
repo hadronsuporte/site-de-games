@@ -1,6 +1,6 @@
 import { Sidebar } from "@/components/Sidebar";
 import { Footer } from "@/components/Footer";
-import { NewsCard } from "@/components/NewsComponents";
+import { NewsRow, ReviewCard } from "@/components/NewsComponents";
 import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
