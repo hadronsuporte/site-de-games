@@ -283,9 +283,91 @@ function Index() {
               </div>
             </div>
           </section>
+
+          <CategorySection
+            title="Previews"
+            bigCards={[
+              { title: 'Zeus em God of War Laufey? "Possibilidade", diz diretora', image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop" },
+              { title: "Exodus ganha novo gameplay e tem vibe Mass Effect MUITO boa", image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=2070&auto=format&fit=crop" },
+            ]}
+            sideList={[
+              { title: "Já jogamos! Star Fox vai deleitar os fãs no Switch 2", image: "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?q=80&w=2070&auto=format&fit=crop" },
+              { title: "Jogamos: Rayman Legends Retold é bem mais que um remake", image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop" },
+              { title: "Steam traz jogo divertido de plataforma na faixa", image: "https://images.unsplash.com/photo-1614294148960-9aa740632a87?q=80&w=2070&auto=format&fit=crop" },
+            ]}
+          />
+
+          <CategorySection
+            title="Dicas"
+            bigCards={[
+              { title: "Roblox: veja lista de códigos e saiba como resgatar itens de graça", image: "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?q=80&w=2070&auto=format&fit=crop" },
+              { title: "Anime Fighters Simulator: veja a lista de códigos e saiba como resgatar", image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=2070&auto=format&fit=crop" },
+            ]}
+            sideList={[
+              { title: "Blox Fruits: veja a lista de códigos no Roblox e saiba como resgatar", image: "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?q=80&w=2070&auto=format&fit=crop" },
+              { title: "Saiba qual é a agenda de podcasts do Flow Games nesta semana", image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop" },
+              { title: "Voidling Bound faz sucesso na Steam com mistura inusitada", image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=2070&auto=format&fit=crop" },
+            ]}
+          />
         </main>
         <Footer />
       </div>
     </div>
+  );
+}
+
+interface CategoryItem {
+  title: string;
+  image: string;
+}
+
+function CategorySection({ title, bigCards, sideList }: { title: string; bigCards: CategoryItem[]; sideList: CategoryItem[] }) {
+  return (
+    <section className="container mx-auto px-4 mb-12">
+      <div className="flex items-center gap-2 mb-6">
+        <span className="flex items-center justify-center w-6 h-6 bg-[#c026d3] rounded-sm">
+          <Zap className="w-3.5 h-3.5 text-white" fill="currentColor" />
+        </span>
+        <h2 className="text-lg font-black italic tracking-tighter uppercase">{title}</h2>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] gap-6 lg:gap-8 pb-6 border-b border-border">
+        {/* Big cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:border-r lg:border-border lg:pr-8">
+          {bigCards.map((c, i) => (
+            <article key={i} className="group cursor-pointer">
+              <div className="relative aspect-video overflow-hidden rounded-sm bg-muted mb-3">
+                <img src={c.image} alt={c.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              </div>
+              <h3 className="text-sm sm:text-[15px] font-black italic leading-snug tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-2">
+                {c.title}
+              </h3>
+            </article>
+          ))}
+          <div className="sm:col-span-2 pt-2">
+            <a className="inline-flex items-center gap-2 text-foreground/80 hover:text-[#c026d3] text-[11px] font-black uppercase tracking-widest cursor-pointer transition-colors">
+              Ver mais
+              <span className="text-[#c026d3]">→</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Side list */}
+        <div className="space-y-4">
+          {sideList.map((item, i) => (
+            <article key={i} className="group cursor-pointer flex items-start gap-3">
+              <div className="relative w-28 sm:w-32 aspect-video flex-shrink-0 overflow-hidden rounded-sm bg-muted">
+                <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              </div>
+              <div className="flex flex-col min-w-0 pt-0.5">
+                <h4 className="text-[13px] font-black italic leading-snug tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3">
+                  {item.title}
+                </h4>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
