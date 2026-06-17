@@ -1,4 +1,4 @@
-import { type ReactNode, useMemo, useState } from "react";
+import { type ChangeEvent, type ReactNode, useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   BarChart3,
@@ -1127,15 +1127,64 @@ function TextAreaField({
 }
 
 function ImageField({ value, onChange }: { value: string; onChange: (value: string) => void }) {
+  const handleImageFile = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) {
+      return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+      window.alert("Escolha um arquivo de imagem.");
+      event.target.value = "";
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result === "string") {
+        onChange(reader.result);
+      }
+    };
+    reader.onerror = () => {
+      window.alert("Não foi possível carregar a imagem. Tente outro arquivo.");
+    };
+    reader.readAsDataURL(file);
+    event.target.value = "";
+  };
+
   return (
-    <div className="grid gap-3 sm:grid-cols-[120px_minmax(0,1fr)] sm:items-end">
+    <div className="grid gap-3 sm:grid-cols-[140px_minmax(0,1fr)] sm:items-start">
       <img
         src={value || fallbackImage}
         alt=""
-        className="h-20 w-full rounded-sm object-cover sm:w-[120px]"
+        className="h-24 w-full rounded-sm object-cover sm:w-[140px]"
         loading="lazy"
       />
-      <TextField label="URL da imagem" value={value} onChange={onChange} />
+      <div className="space-y-2">
+        <TextField label="URL da imagem" value={value} onChange={onChange} />
+        <div className="flex flex-wrap items-center gap-2">
+          <label className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-md bg-black px-3 py-2 text-xs font-black uppercase text-white transition hover:bg-slate-800 dark:bg-white dark:text-black dark:hover:bg-slate-200">
+            <ImageIcon size={14} />
+            Escolher imagem
+            <input
+              type="file"
+              accept="image/png,image/jpeg,image/webp,image/gif"
+              className="sr-only"
+              onChange={handleImageFile}
+            />
+          </label>
+          <button
+            type="button"
+            onClick={() => onChange(fallbackImage)}
+            className="inline-flex items-center justify-center rounded-md border border-black/10 px-3 py-2 text-xs font-black uppercase text-slate-600 transition hover:bg-slate-100 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/10"
+          >
+            Usar padrão
+          </button>
+        </div>
+        <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+          Use upload local ou cole uma URL externa.
+        </p>
+      </div>
     </div>
   );
 }
@@ -1153,7 +1202,7 @@ function AddButton({
     <button
       onClick={onClick}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-md bg-[#F5C518] font-black uppercase text-black hover:bg-[#D4A912]",
+        "inline-flex cursor-pointer items-center justify-center gap-2 rounded-md bg-[#F5C518] font-black uppercase text-black hover:bg-[#D4A912]",
         compact ? "px-3 py-1.5 text-[10px]" : "px-4 py-2 text-sm",
       )}
     >
@@ -1167,7 +1216,7 @@ function DeleteButton({ onClick, label = "Excluir" }: { onClick: () => void; lab
   return (
     <button
       onClick={onClick}
-      className="inline-flex w-fit items-center gap-2 rounded-md border border-red-500/30 px-3 py-2 text-xs font-black uppercase text-red-600 hover:bg-red-500 hover:text-white dark:text-red-300"
+      className="inline-flex w-fit cursor-pointer items-center gap-2 rounded-md border border-red-500/30 px-3 py-2 text-xs font-black uppercase text-red-600 hover:bg-red-500 hover:text-white dark:text-red-300"
     >
       <Trash2 size={14} />
       {label}
