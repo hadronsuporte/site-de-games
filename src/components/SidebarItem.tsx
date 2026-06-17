@@ -19,11 +19,11 @@ export function SidebarItem({ icon, label, active, collapsed }: SidebarItemProps
         collapsed && "justify-center px-0"
       )}
     >
-      <div className={cn("flex-shrink-0 transition-colors", active ? "text-foreground" : "text-muted-foreground group-hover:text-foreground")}>
+      <div className={cn("flex-shrink-0 transition-colors", active ? "text-accent-foreground" : "text-muted-foreground group-hover:text-foreground")}>
         {icon}
       </div>
       {!collapsed && (
-        <span className={cn("text-sm font-bold uppercase tracking-tight italic", active ? "text-foreground" : "text-muted-foreground group-hover:text-foreground")}>
+        <span className={cn("text-sm font-bold uppercase tracking-tight italic", active ? "text-accent-foreground" : "text-muted-foreground group-hover:text-foreground")}>
           {label}
         </span>
       )}
