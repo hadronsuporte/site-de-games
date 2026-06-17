@@ -1,11 +1,12 @@
-import { Sidebar } from "@/components/Sidebar";
-import { Footer } from "@/components/Footer";
-import { NewsRow, ReviewCard, MostReadCard } from "@/components/NewsComponents";
-import { Zap, Youtube, Play, ArrowRight } from "lucide-react";
-import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
-import gamingDoodles from "@/assets/gaming-doodles.png.asset.json";
+import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { ArrowRight, Play, Zap } from "lucide-react";
+import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
+import { Footer } from "@/components/Footer";
+import { MostReadCard, NewsRow, ReviewCard } from "@/components/NewsComponents";
+import { Sidebar } from "@/components/Sidebar";
+import gamingDoodles from "@/assets/gaming-doodles.png.asset.json";
+import { useSiteContent, type CategoryItemContent } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
@@ -15,6 +16,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const { content } = useSiteContent();
 
   useEffect(() => {
     setIsMounted(true);
@@ -24,163 +26,89 @@ function Index() {
     return <div className="min-h-screen bg-black" />;
   }
 
+  const featuredVideos = content.videos.slice(0, 2);
+  const sideVideos = content.videos.slice(2, 5);
+
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-flow-yellow selection:text-black flex transition-colors duration-300">
-      <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+      <Sidebar
+        isCollapsed={isCollapsed}
+        setIsCollapsed={setIsCollapsed}
+        menuItems={content.menuItems}
+        logoTop={content.settings.logoTop}
+        logoBottom={content.settings.logoBottom}
+      />
 
-      <div 
+      <div
         className={cn(
           "flex-1 transition-all duration-300",
-          isCollapsed ? "ml-[70px]" : "ml-[260px]"
+          isCollapsed ? "ml-[70px]" : "ml-[260px]",
         )}
       >
         <main className="bg-background">
           <div className="pt-6">
-            <FeaturedNewsGrid />
+            <FeaturedNewsGrid news={content.featuredNews} />
           </div>
 
           <section className="container mx-auto px-4 mb-16">
             <div className="flex items-center justify-between mb-6 border-b border-border pb-4">
-              <h2 className="text-2xl font-black italic tracking-tighter uppercase">Últimas Notícias</h2>
+              <h2 className="text-2xl font-black italic tracking-tighter uppercase">
+                Últimas Notícias
+              </h2>
               <button className="text-[10px] font-black bg-muted hover:bg-flow-yellow hover:text-black px-4 py-2 rounded-sm transition-all uppercase">
                 Ver Tudo
               </button>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,3fr)_minmax(0,1.5fr)] gap-4 lg:gap-5">
-              {/* Coluna esquerda: notícias */}
               <div className="lg:border-r lg:border-border lg:pr-4 xl:pr-5">
-                <NewsRow
-                  category="Reviews"
-                  title="Review: Elden Ring: Shadow of the Erdtree é a perfeição em forma de DLC"
-                  author="Guss"
-                  date="12.06.2026 às 12:28"
-                  image="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?q=80&w=2071&auto=format&fit=crop"
-                />
-                <NewsRow
-                  category="Esports"
-                  title="CBLOL 2026: LOUD e paiN Gaming se enfrentam na grande final"
-                  author="Guss"
-                  date="11.06.2026 às 19:42"
-                  image="https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=2084&auto=format&fit=crop"
-                />
-                <NewsRow
-                  category="Cinema & TV"
-                  title="Deadpool & Wolverine quebra recordes de bilheteria mundial"
-                  author="Guss"
-                  date="11.06.2026 às 14:10"
-                  image="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=2070&auto=format&fit=crop"
-                />
-                <NewsRow
-                  category="Games"
-                  title="GTA VI: Novos rumores sugerem trailer em breve para os fãs"
-                  author="Guss"
-                  date="10.06.2026 às 09:55"
-                  image="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop"
-                />
-                <NewsRow
-                  category="Games"
-                  title="Fable terá diferentes níveis de dificuldade"
-                  author="Guss"
-                  date="17.06.2026 às 10:56"
-                  image="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=2070&auto=format&fit=crop"
-                />
-                <NewsRow
-                  category="FG Cards by Copag"
-                  title="Por que Disney Lorcana funciona tão bem como produto familiar?"
-                  author="Guss"
-                  date="17.06.2026 às 10:00"
-                  image="https://images.unsplash.com/photo-1606503153255-59d8b8b82176?q=80&w=2070&auto=format&fit=crop"
-                />
-                <NewsRow
-                  category="Games"
-                  title="Oferta de férias da PS Store: veja 15 jogos por menos de R$ 60"
-                  author="Guss"
-                  date="17.06.2026 às 9:44"
-                  image="https://images.unsplash.com/photo-1593305841991-05c297ba4575?q=80&w=2070&auto=format&fit=crop"
-                />
-                <NewsRow
-                  category="Games"
-                  title="Outward 2 é adiado para 2027"
-                  author="Guss"
-                  date="16.06.2026 às 14:54"
-                  image="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=2070&auto=format&fit=crop"
-                />
+                {content.latestNews.map((item) => (
+                  <NewsRow
+                    key={item.id}
+                    category={item.category}
+                    title={item.title}
+                    author={item.author}
+                    date={item.date}
+                    image={item.image}
+                  />
+                ))}
               </div>
 
-              {/* Coluna direita: reviews */}
               <aside>
                 <div className="flex items-center justify-between mb-5">
                   <h3 className="text-lg font-black italic tracking-tighter uppercase">Reviews</h3>
                   <span className="h-px flex-1 bg-border ml-4" />
                 </div>
                 <div className="space-y-3">
-                  <ReviewCard
-                    score="9.5"
-                    title="Elden Ring: Shadow of the Erdtree - A obra-prima da FromSoftware"
-                    image="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=2070&auto=format&fit=crop"
-                  />
-                  <ReviewCard
-                    score="8.7"
-                    title="Final Fantasy XVI: Rebirth entrega aventura épica e emocionante"
-                    image="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=2070&auto=format&fit=crop"
-                  />
-                  <ReviewCard
-                    score="9.0"
-                    title="Hellblade II: Senua's Saga impressiona pela direção visual"
-                    image="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=2070&auto=format&fit=crop"
-                  />
-                  <ReviewCard
-                    score="8.5"
-                    title="Black Myth: Wukong surpreende com combate fluido e visuais deslumbrantes"
-                    image="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop"
-                  />
-                  <ReviewCard
-                    score="9.2"
-                    title="Metaphor: ReFantazio nasce atemporal e é um verdadeiro jogaço"
-                    image="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop"
-                  />
+                  {content.reviews.map((item) => (
+                    <ReviewCard
+                      key={item.id}
+                      score={item.score}
+                      title={item.title}
+                      image={item.image}
+                    />
+                  ))}
                 </div>
 
-                {/* As Mais Lidas da Semana */}
                 <div className="mt-8 pt-6 border-t-2 border-dashed border-[#F5C518]/40">
                   <div className="flex items-center gap-2 mb-5">
                     <span className="flex items-center justify-center w-6 h-6 bg-[#F5C518] rounded-sm">
                       <Zap className="w-3.5 h-3.5 text-black" fill="currentColor" />
                     </span>
-                    <h3 className="text-base font-black italic tracking-tighter uppercase">As Mais Lidas da Semana</h3>
+                    <h3 className="text-base font-black italic tracking-tighter uppercase">
+                      As Mais Lidas da Semana
+                    </h3>
                   </div>
                   <div className="space-y-4">
-                    <MostReadCard
-                      category="Dicas"
-                      title="Blox Fruits: veja a lista de códigos no Roblox e saiba como resgatar"
-                      author="Guss"
-                      image="https://images.unsplash.com/photo-1606503153255-59d8b8b82176?q=80&w=2070&auto=format&fit=crop"
-                    />
-                    <MostReadCard
-                      category="Dicas"
-                      title="Roblox: veja lista de códigos e saiba como resgatar itens de graça"
-                      author="Guss"
-                      image="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?q=80&w=2070&auto=format&fit=crop"
-                    />
-                    <MostReadCard
-                      category="Dicas"
-                      title="Anime Fighters Simulator: veja a lista de códigos e saiba como resgatar"
-                      author="Guss"
-                      image="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=2070&auto=format&fit=crop"
-                    />
-                    <MostReadCard
-                      category="Dicas"
-                      title="Qual é o próximo jogo grátis da Epic Games Store? Saiba aqui!"
-                      author="Guss"
-                      image="https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?q=80&w=2070&auto=format&fit=crop"
-                    />
-                    <MostReadCard
-                      category="Games"
-                      title="Steam: os 10 jogos mais vendidos da semana"
-                      author="Guss"
-                      image="https://images.unsplash.com/photo-1614294148960-9aa740632a87?q=80&w=2070&auto=format&fit=crop"
-                    />
+                    {content.mostRead.map((item) => (
+                      <MostReadCard
+                        key={item.id}
+                        category={item.category}
+                        title={item.title}
+                        author={item.author}
+                        image={item.image}
+                      />
+                    ))}
                   </div>
                 </div>
               </aside>
@@ -196,8 +124,7 @@ function Index() {
             </div>
           </section>
 
-          {/* Podcasts e Vídeos */}
-          <section className="relative bg-[#F5C518] py-12 mb-16 overflow-hidden">
+          <section id="videos" className="relative bg-[#F5C518] py-12 mb-16 overflow-hidden">
             <div
               className="absolute inset-0 opacity-25 pointer-events-none mix-blend-multiply"
               style={{
@@ -208,76 +135,78 @@ function Index() {
             />
             <div className="container mx-auto px-4 relative">
               <div className="flex items-center gap-2 mb-6">
-                <Zap className="w-4 h-4 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]" fill="currentColor" />
-                <h2 className="text-lg font-black italic tracking-tighter uppercase text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">Podcasts e Vídeos</h2>
+                <Zap
+                  className="w-4 h-4 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+                  fill="currentColor"
+                />
+                <h2 className="text-lg font-black italic tracking-tighter uppercase text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
+                  Podcasts e Vídeos
+                </h2>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)] gap-6">
-                {/* Card 1 */}
-                <div className="group cursor-pointer">
-                  <div className="relative aspect-video overflow-hidden rounded-sm bg-black mb-3">
-                    <img
-                      src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop"
-                      alt="GTA Online Secreto"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <span className="absolute top-2 left-2 bg-black text-[#F5C518] text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
-                      Podcasts
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="flex items-center justify-center w-7 h-7 bg-white rounded-full shrink-0 mt-0.5 shadow-md">
-                      <Play className="w-3 h-3 text-black fill-black ml-0.5" />
-                    </span>
-                    <h3 className="text-[13px] font-black italic uppercase tracking-tight text-white leading-snug group-hover:underline drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
-                      GTA Online Secreto e Nintendo Switch 2! FGN #83
-                    </h3>
-                  </div>
-                </div>
+                {featuredVideos.map((item, index) => (
+                  <div className="group cursor-pointer" key={item.id}>
+                    <div className="relative aspect-video overflow-hidden rounded-sm bg-black mb-3">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <span className="absolute top-2 left-2 bg-black text-[#F5C518] text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
+                        {item.category}
+                      </span>
+                      <span className="absolute right-2 bottom-2 bg-black/80 text-white text-[10px] font-black px-2 py-1 rounded-sm">
+                        {item.duration}
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="flex items-center justify-center w-7 h-7 bg-white rounded-full shrink-0 mt-0.5 shadow-md">
+                        <Play className="w-3 h-3 text-black fill-black ml-0.5" />
+                      </span>
+                      <h3 className="text-[13px] font-black italic uppercase tracking-tight text-white leading-snug group-hover:underline drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
+                        {item.title}
+                      </h3>
+                    </div>
 
-                {/* Card 2 */}
-                <div className="group cursor-pointer">
-                  <div className="relative aspect-video overflow-hidden rounded-sm bg-black mb-3">
-                    <img
-                      src="https://images.unsplash.com/photo-1606503153255-59d8b8b82176?q=80&w=2070&auto=format&fit=crop"
-                      alt="Cobertura Pokémon Presents"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <span className="absolute top-2 left-2 bg-black text-[#F5C518] text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
-                      Vídeos
-                    </span>
+                    {index === 1 && (
+                      <a
+                        href={item.url}
+                        className="group/yt inline-flex items-center gap-2.5 mt-6 text-white text-[11px] font-black italic uppercase tracking-widest hover:text-white cursor-pointer drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+                      >
+                        <span className="flex items-center justify-center w-8 h-6 bg-[#FF0000] rounded-md shadow-md group-hover/yt:scale-110 transition-transform">
+                          <Play className="w-3 h-3 text-white fill-white ml-0.5" />
+                        </span>
+                        <span className="group-hover/yt:underline">
+                          Acesse nosso canal no YouTube
+                        </span>
+                        <ArrowRight
+                          className="w-3.5 h-3.5 group-hover/yt:translate-x-1 transition-transform"
+                          strokeWidth={3}
+                        />
+                      </a>
+                    )}
                   </div>
-                  <div className="flex items-start gap-2">
-                    <span className="flex items-center justify-center w-7 h-7 bg-white rounded-full shrink-0 mt-0.5 shadow-md">
-                      <Play className="w-3 h-3 text-black fill-black ml-0.5" />
-                    </span>
-                    <h3 className="text-[13px] font-black italic uppercase tracking-tight text-white leading-snug group-hover:underline drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
-                      Cobertura Pokémon Presents!
-                    </h3>
-                  </div>
+                ))}
 
-                  <a className="group/yt inline-flex items-center gap-2.5 mt-6 text-white text-[11px] font-black italic uppercase tracking-widest hover:text-white cursor-pointer drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
-                    <span className="flex items-center justify-center w-8 h-6 bg-[#FF0000] rounded-md shadow-md group-hover/yt:scale-110 transition-transform">
-                      <Play className="w-3 h-3 text-white fill-white ml-0.5" />
-                    </span>
-                    <span className="group-hover/yt:underline">Acesse nosso canal no YouTube</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover/yt:translate-x-1 transition-transform" strokeWidth={3} />
-                  </a>
-                </div>
-
-                {/* Right list */}
                 <div className="space-y-4">
-                  {[
-                    { cat: "Podcasts", title: "Animes mais ESTRANHOS da HISTÓRIA! Flowtaku #05", img: "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=2070&auto=format&fit=crop" },
-                    { cat: "Podcasts", title: "CAMILOTA XP, esports é com ela! Games4Gamers #81", img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop" },
-                    { cat: "Vídeos", title: "LANÇAMENTOS AGUARDADOS de AGOSTO!", img: "https://images.unsplash.com/photo-1614294148960-9aa740632a87?q=80&w=2070&auto=format&fit=crop" },
-                  ].map((item, i) => (
-                    <article key={i} className="group cursor-pointer flex items-start gap-3">
+                  {sideVideos.map((item) => (
+                    <article key={item.id} className="group cursor-pointer flex items-start gap-3">
                       <div className="relative w-28 sm:w-32 aspect-video flex-shrink-0 overflow-hidden rounded-sm bg-black">
-                        <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                        <span className="absolute right-1 bottom-1 bg-black/80 text-white text-[9px] font-black px-1.5 py-0.5 rounded-sm">
+                          {item.duration}
+                        </span>
                       </div>
                       <div className="flex flex-col min-w-0">
-                        <span className="text-[10px] font-black uppercase tracking-widest text-white/90 mb-1 drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]">{item.cat}</span>
+                        <span className="text-[10px] font-black uppercase tracking-widest text-white/90 mb-1 drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]">
+                          {item.category}
+                        </span>
                         <h4 className="text-[12px] font-black italic uppercase leading-snug tracking-tight text-white group-hover:underline line-clamp-3 drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
                           {item.title}
                         </h4>
@@ -289,44 +218,30 @@ function Index() {
             </div>
           </section>
 
-          <CategorySection
-            title="Previews"
-            bigCards={[
-              { title: 'Zeus em God of War Laufey? "Possibilidade", diz diretora', image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop" },
-              { title: "Exodus ganha novo gameplay e tem vibe Mass Effect MUITO boa", image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=2070&auto=format&fit=crop" },
-            ]}
-            sideList={[
-              { title: "Já jogamos! Star Fox vai deleitar os fãs no Switch 2", image: "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?q=80&w=2070&auto=format&fit=crop" },
-              { title: "Jogamos: Rayman Legends Retold é bem mais que um remake", image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop" },
-              { title: "Steam traz jogo divertido de plataforma na faixa", image: "https://images.unsplash.com/photo-1614294148960-9aa740632a87?q=80&w=2070&auto=format&fit=crop" },
-            ]}
-          />
-
-          <CategorySection
-            title="Dicas"
-            bigCards={[
-              { title: "Roblox: veja lista de códigos e saiba como resgatar itens de graça", image: "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?q=80&w=2070&auto=format&fit=crop" },
-              { title: "Anime Fighters Simulator: veja a lista de códigos e saiba como resgatar", image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=2070&auto=format&fit=crop" },
-            ]}
-            sideList={[
-              { title: "Blox Fruits: veja a lista de códigos no Roblox e saiba como resgatar", image: "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?q=80&w=2070&auto=format&fit=crop" },
-              { title: "Saiba qual é a agenda de podcasts do Games4Gamers nesta semana", image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop" },
-              { title: "Voidling Bound faz sucesso na Steam com mistura inusitada", image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=2070&auto=format&fit=crop" },
-            ]}
-          />
+          {content.categorySections.map((section) => (
+            <CategorySection
+              key={section.id}
+              title={section.title}
+              bigCards={section.bigCards}
+              sideList={section.sideList}
+            />
+          ))}
         </main>
-        <Footer />
+        <Footer settings={content.settings} sections={content.footerSections} />
       </div>
     </div>
   );
 }
 
-interface CategoryItem {
+function CategorySection({
+  title,
+  bigCards,
+  sideList,
+}: {
   title: string;
-  image: string;
-}
-
-function CategorySection({ title, bigCards, sideList }: { title: string; bigCards: CategoryItem[]; sideList: CategoryItem[] }) {
+  bigCards: CategoryItemContent[];
+  sideList: CategoryItemContent[];
+}) {
   return (
     <section className="container mx-auto px-4 mb-12">
       <div className="flex items-center gap-2 mb-6">
@@ -337,15 +252,19 @@ function CategorySection({ title, bigCards, sideList }: { title: string; bigCard
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] gap-6 lg:gap-8 pb-6 border-b border-border">
-        {/* Big cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:border-r lg:border-border lg:pr-8">
-          {bigCards.map((c, i) => (
-            <article key={i} className="group cursor-pointer">
+          {bigCards.map((item) => (
+            <article key={item.id} className="group cursor-pointer">
               <div className="relative aspect-video overflow-hidden rounded-sm bg-muted mb-3">
-                <img src={c.image} alt={c.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
               </div>
               <h3 className="text-sm sm:text-[15px] font-black italic leading-snug tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-2">
-                {c.title}
+                {item.title}
               </h3>
             </article>
           ))}
@@ -357,12 +276,16 @@ function CategorySection({ title, bigCards, sideList }: { title: string; bigCard
           </div>
         </div>
 
-        {/* Side list */}
         <div className="space-y-4">
-          {sideList.map((item, i) => (
-            <article key={i} className="group cursor-pointer flex items-start gap-3">
+          {sideList.map((item) => (
+            <article key={item.id} className="group cursor-pointer flex items-start gap-3">
               <div className="relative w-28 sm:w-32 aspect-video flex-shrink-0 overflow-hidden rounded-sm bg-muted">
-                <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
               </div>
               <div className="flex flex-col min-w-0 pt-0.5">
                 <h4 className="text-[13px] font-black italic leading-snug tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3">

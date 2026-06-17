@@ -1,29 +1,15 @@
 import { Zap } from "lucide-react";
 import footerBanner from "@/assets/footer-banner.jpg";
+import type { FooterSectionContent, SiteSettings } from "@/lib/site-content";
 
-export function Footer() {
-  const sections = [
-    {
-      title: "Institucional",
-      links: ["Quem Somos", "Contato", "Política de Privacidade", "Conheça o Grupo Flow"],
-    },
-    {
-      title: "Nossos Canais",
-      links: ["Games4Gamers", "Cortes do Games4Gamers", "Games4Gamers Trailers", "Gameplayrj", "Discord", "WhatsApp", "Telegram"],
-    },
-    {
-      title: "Serviços G4G",
-      links: ["Games4Gamers Store", "Games em Promoção", "Faz a Boa!", "Seja Membro"],
-    },
-    {
-      title: "Conheça o Grupo",
-      links: ["Ciência Sem Fim", "Venus Podcast"],
-    },
-  ];
+interface FooterProps {
+  settings: SiteSettings;
+  sections: FooterSectionContent[];
+}
 
+export function Footer({ settings, sections }: FooterProps) {
   return (
     <footer className="bg-black text-white">
-      {/* Purple banner */}
       <div className="relative w-full h-24 md:h-32 overflow-hidden bg-[#F5C518]">
         <img
           src={footerBanner}
@@ -34,12 +20,11 @@ export function Footer() {
         />
       </div>
 
-      {/* Main footer area */}
       <div className="relative">
         <div className="container mx-auto px-4 pt-14 pb-6">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
             {sections.map((section) => (
-              <div key={section.title}>
+              <div key={section.id}>
                 <h3 className="text-[11px] font-black uppercase tracking-widest mb-5 text-white">
                   {section.title}
                 </h3>
@@ -58,14 +43,13 @@ export function Footer() {
               </div>
             ))}
 
-            {/* Newsletter */}
             <div className="col-span-2 md:col-span-3 lg:col-span-1">
               <div className="flex items-center gap-2 mb-5">
                 <span className="flex items-center justify-center w-5 h-5 bg-[#F5C518] rounded-sm">
                   <Zap className="w-3 h-3 text-black" fill="currentColor" />
                 </span>
                 <h3 className="text-[11px] font-black uppercase tracking-widest">
-                  Cadastre-se em nossa Newsletter
+                  {settings.newsletterTitle}
                 </h3>
               </div>
               <div className="relative">
@@ -87,19 +71,16 @@ export function Footer() {
                   </button>
                 </div>
                 <p className="text-[10px] text-white/40 mt-3 uppercase tracking-widest">
-                  Cadastre seu e-mail acima
+                  {settings.newsletterHelper}
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Bottom row */}
           <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-[11px] text-white/50 text-center md:text-left leading-relaxed">
-              <p>© 2024 Games4Gamers. Todos os direitos reservados.</p>
-              <p>
-                Desenvolvido por <a href="#" className="underline hover:text-flow-yellow">Xgiggsbr</a>
-              </p>
+              <p>{settings.footerCopyright}</p>
+              <p>{settings.footerCredit}</p>
             </div>
             <div className="flex items-center gap-8 text-white/70">
               <div className="flex items-center gap-2">
@@ -107,7 +88,9 @@ export function Footer() {
                   G4G
                 </span>
                 <span className="text-[11px] font-black uppercase tracking-widest italic">
-                  Games4<br />Gamers
+                  {settings.logoTop}
+                  <br />
+                  {settings.logoBottom}
                 </span>
               </div>
               <div className="w-7 h-7 grid place-items-center border border-white/40 rounded-sm text-white/70 font-black italic text-xs">
