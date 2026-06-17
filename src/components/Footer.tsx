@@ -12,12 +12,12 @@ export function Footer() {
       links: ["Games4Gamers", "Cortes do Games4Gamers", "Games4Gamers Trailers", "Gameplayrj", "Discord", "WhatsApp", "Telegram"],
     },
     {
-      title: "Serviços FG",
-      links: ["Games4Gamers Store", "Flow Ping", "Low Games", "Games em Promoção", "Faz a Boa!", "Seja Membro"],
+      title: "Serviços G4G",
+      links: ["Games4Gamers Store", "Games em Promoção", "Faz a Boa!", "Seja Membro"],
     },
     {
-      title: "Conheça o Grupo Flow",
-      links: ["Flow Podcast", "Flow Sport Club", "Flow News", "Flow S.A.", "Ciência Sem Fim", "Venus Podcast"],
+      title: "Conheça o Grupo",
+      links: ["Ciência Sem Fim", "Venus Podcast"],
     },
   ];
 
