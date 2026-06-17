@@ -142,9 +142,9 @@ function Index() {
                 </div>
 
                 {/* As Mais Lidas da Semana */}
-                <div className="mt-8 pt-6 border-t-2 border-dashed border-[#107C10]/40">
+                <div className="mt-8 pt-6 border-t-2 border-dashed border-[#F5C518]/40">
                   <div className="flex items-center gap-2 mb-5">
-                    <span className="flex items-center justify-center w-6 h-6 bg-[#107C10] rounded-sm">
+                    <span className="flex items-center justify-center w-6 h-6 bg-[#F5C518] rounded-sm">
                       <Zap className="w-3.5 h-3.5 text-white" fill="currentColor" />
                     </span>
                     <h3 className="text-base font-black italic tracking-tighter uppercase">As Mais Lidas da Semana</h3>
@@ -186,7 +186,7 @@ function Index() {
             </div>
 
             <div className="flex justify-center mt-10">
-              <button className="group inline-flex items-center gap-3 bg-[#107C10] hover:bg-[#0E6A0E] text-white text-[11px] font-black uppercase tracking-widest px-6 py-3 rounded-sm transition-all">
+              <button className="group inline-flex items-center gap-3 bg-[#F5C518] hover:bg-[#D4A912] text-white text-[11px] font-black uppercase tracking-widest px-6 py-3 rounded-sm transition-all">
                 Ver mais notícias
                 <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-white/60 group-hover:translate-x-1 transition-transform">→</span>
               </button>
@@ -194,7 +194,7 @@ function Index() {
           </section>
 
           {/* Podcasts e Vídeos */}
-          <section className="relative bg-[#107C10] py-12 mb-16 overflow-hidden">
+          <section className="relative bg-[#F5C518] py-12 mb-16 overflow-hidden">
             <div
               className="absolute inset-0 opacity-[0.12] pointer-events-none"
               style={{
@@ -218,13 +218,13 @@ function Index() {
                       alt="GTA Online Secreto"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <span className="absolute top-2 left-2 bg-white text-[#107C10] text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
+                    <span className="absolute top-2 left-2 bg-white text-[#F5C518] text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
                       Podcasts
                     </span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="flex items-center justify-center w-6 h-6 bg-white rounded-full shrink-0 mt-0.5">
-                      <span className="text-[#107C10] text-[10px]">▶</span>
+                      <span className="text-[#F5C518] text-[10px]">▶</span>
                     </span>
                     <h3 className="text-[13px] font-black italic uppercase tracking-tight text-white leading-snug group-hover:underline">
                       GTA Online Secreto e Nintendo Switch 2! FGN #83
@@ -240,13 +240,13 @@ function Index() {
                       alt="Cobertura Pokémon Presents"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <span className="absolute top-2 left-2 bg-white text-[#107C10] text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
+                    <span className="absolute top-2 left-2 bg-white text-[#F5C518] text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
                       Vídeos
                     </span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="flex items-center justify-center w-6 h-6 bg-white rounded-full shrink-0 mt-0.5">
-                      <span className="text-[#107C10] text-[10px]">▶</span>
+                      <span className="text-[#F5C518] text-[10px]">▶</span>
                     </span>
                     <h3 className="text-[13px] font-black italic uppercase tracking-tight text-white leading-snug group-hover:underline">
                       Cobertura Pokémon Presents!
@@ -255,7 +255,7 @@ function Index() {
 
                   <a className="inline-flex items-center gap-2 mt-6 text-white text-[11px] font-black italic uppercase tracking-widest hover:underline cursor-pointer">
                     <span className="flex items-center justify-center w-5 h-5 bg-white rounded-sm">
-                      <span className="text-[#107C10] text-[8px]">▶</span>
+                      <span className="text-[#F5C518] text-[8px]">▶</span>
                     </span>
                     Acesse nosso canal no YouTube →
                   </a>
@@ -326,7 +326,7 @@ function CategorySection({ title, bigCards, sideList }: { title: string; bigCard
   return (
     <section className="container mx-auto px-4 mb-12">
       <div className="flex items-center gap-2 mb-6">
-        <span className="flex items-center justify-center w-6 h-6 bg-[#107C10] rounded-sm">
+        <span className="flex items-center justify-center w-6 h-6 bg-[#F5C518] rounded-sm">
           <Zap className="w-3.5 h-3.5 text-white" fill="currentColor" />
         </span>
         <h2 className="text-lg font-black italic tracking-tighter uppercase">{title}</h2>
@@ -346,9 +346,9 @@ function CategorySection({ title, bigCards, sideList }: { title: string; bigCard
             </article>
           ))}
           <div className="sm:col-span-2 pt-2">
-            <a className="inline-flex items-center gap-2 text-foreground/80 hover:text-[#107C10] text-[11px] font-black uppercase tracking-widest cursor-pointer transition-colors">
+            <a className="inline-flex items-center gap-2 text-foreground/80 hover:text-[#F5C518] text-[11px] font-black uppercase tracking-widest cursor-pointer transition-colors">
               Ver mais
-              <span className="text-[#107C10]">→</span>
+              <span className="text-[#F5C518]">→</span>
             </a>
           </div>
         </div>

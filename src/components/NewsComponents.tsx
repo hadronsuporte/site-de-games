@@ -129,7 +129,7 @@ export function NewsRow({ category, title, author, date, image }: NewsRowProps) 
           />
         </div>
         <div className="flex flex-col min-w-0">
-          <span className="text-[10px] font-black uppercase tracking-widest mb-1.5 text-[#107C10]">
+          <span className="text-[10px] font-black uppercase tracking-widest mb-1.5 text-[#F5C518]">
             {category}
           </span>
           <h3 className="text-sm sm:text-base md:text-lg font-black italic leading-[1.25] tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3 mb-3 max-w-[28ch] sm:max-w-[30ch] md:max-w-[32ch]">
@@ -137,7 +137,7 @@ export function NewsRow({ category, title, author, date, image }: NewsRowProps) 
           </h3>
           <div className="mt-auto pt-2.5 border-t border-border/70 flex items-center justify-between gap-3 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-muted-foreground">
             <span className="flex items-center gap-1.5 truncate">
-              <span className="inline-block w-2 h-2 bg-[#107C10]" />
+              <span className="inline-block w-2 h-2 bg-[#F5C518]" />
               <span className="truncate">Por {author}</span>
             </span>
             <span className="shrink-0">{date}</span>
@@ -169,7 +169,7 @@ export function ReviewCard({ score, title, image }: ReviewCardProps) {
         </div>
       </div>
       <div className="flex flex-col min-w-0 pt-0.5">
-        <span className="text-[10px] font-black uppercase tracking-widest text-[#107C10] mb-1">
+        <span className="text-[10px] font-black uppercase tracking-widest text-[#F5C518] mb-1">
           Reviews
         </span>
         <h4 className="text-[13px] sm:text-sm font-black italic leading-snug tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3">
@@ -191,14 +191,14 @@ export function MostReadCard({ category, title, author, image }: MostReadCardPro
   return (
     <article className="group cursor-pointer flex items-start gap-3">
       <div className="flex flex-col min-w-0 flex-1 pt-0.5">
-        <span className="text-[10px] font-black uppercase tracking-widest text-[#107C10] mb-1">
+        <span className="text-[10px] font-black uppercase tracking-widest text-[#F5C518] mb-1">
           {category}
         </span>
         <h4 className="text-[13px] sm:text-sm font-black italic leading-snug tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3 mb-2">
           {title}
         </h4>
         <span className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-muted-foreground truncate">
-          <span className="inline-block w-2 h-2 bg-[#107C10]" />
+          <span className="inline-block w-2 h-2 bg-[#F5C518]" />
           <span className="truncate">Por {author}</span>
         </span>
       </div>
