@@ -208,11 +208,9 @@ function Index() {
             />
             <div className="container mx-auto px-4 relative">
               <div className="flex items-center gap-2 mb-6">
-                <Zap className="w-4 h-4 text-black" fill="currentColor" />
-                <h2 className="text-lg font-black italic tracking-tighter uppercase text-black">Podcasts e Vídeos</h2>
+                <Zap className="w-4 h-4 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]" fill="currentColor" />
+                <h2 className="text-lg font-black italic tracking-tighter uppercase text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">Podcasts e Vídeos</h2>
               </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)] gap-6">
                 {/* Card 1 */}
                 <div className="group cursor-pointer">
                   <div className="relative aspect-video overflow-hidden rounded-sm bg-black mb-3">
