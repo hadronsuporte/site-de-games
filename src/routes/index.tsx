@@ -197,11 +197,11 @@ function Index() {
           {/* Podcasts e Vídeos */}
           <section className="relative bg-[#F5C518] py-12 mb-16 overflow-hidden">
             <div
-              className="absolute inset-0 opacity-[0.12] pointer-events-none"
+              className="absolute inset-0 opacity-25 pointer-events-none mix-blend-multiply"
               style={{
-                backgroundImage:
-                  "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><g transform='translate(6 14)'><path d='M6 12 Q0 12 0 6 Q0 0 6 0 H22 Q28 0 28 6 Q28 12 22 12 Z'/><circle cx='6' cy='6' r='1.2'/><circle cx='22' cy='6' r='1.2'/></g><g transform='translate(46 44)'><circle cx='8' cy='8' r='8'/><path d='M2 8 H14 M8 2 V14'/></g><g transform='translate(10 50)'><path d='M0 6 L6 0 L12 6 L6 12 Z'/></g><g transform='translate(54 8)'><rect x='0' y='0' width='14' height='10' rx='2'/><path d='M3 5 H11'/></g></svg>\")",
-                backgroundSize: "120px 120px",
+                backgroundImage: `url("${gamingDoodles.url}")`,
+                backgroundSize: "600px auto",
+                backgroundRepeat: "repeat",
               }}
             />
             <div className="container mx-auto px-4 relative">
