@@ -24,7 +24,7 @@ export function Footer() {
   return (
     <footer className="bg-black text-white">
       {/* Purple banner */}
-      <div className="relative w-full h-24 md:h-32 overflow-hidden bg-[#a020f0]">
+      <div className="relative w-full h-24 md:h-32 overflow-hidden bg-[#107C10]">
         <img
           src={footerBanner}
           alt=""
@@ -61,7 +61,7 @@ export function Footer() {
             {/* Newsletter */}
             <div className="col-span-2 md:col-span-3 lg:col-span-1">
               <div className="flex items-center gap-2 mb-5">
-                <span className="flex items-center justify-center w-5 h-5 bg-[#c026d3] rounded-sm">
+                <span className="flex items-center justify-center w-5 h-5 bg-[#107C10] rounded-sm">
                   <Zap className="w-3 h-3 text-white" fill="currentColor" />
                 </span>
                 <h3 className="text-[11px] font-black uppercase tracking-widest">
@@ -80,7 +80,7 @@ export function Footer() {
                   />
                   <button
                     type="button"
-                    className="absolute right-0 bottom-1.5 flex items-center justify-center w-7 h-7 bg-[#c026d3] hover:bg-[#a21caf] rounded-sm transition-colors"
+                    className="absolute right-0 bottom-1.5 flex items-center justify-center w-7 h-7 bg-[#107C10] hover:bg-[#0E6A0E] rounded-sm transition-colors"
                     aria-label="Cadastrar"
                   >
                     <span className="text-white text-sm">→</span>

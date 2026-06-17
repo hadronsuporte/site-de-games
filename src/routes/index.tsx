@@ -142,9 +142,9 @@ function Index() {
                 </div>
 
                 {/* As Mais Lidas da Semana */}
-                <div className="mt-8 pt-6 border-t-2 border-dashed border-[#c026d3]/40">
+                <div className="mt-8 pt-6 border-t-2 border-dashed border-[#107C10]/40">
                   <div className="flex items-center gap-2 mb-5">
-                    <span className="flex items-center justify-center w-6 h-6 bg-[#c026d3] rounded-sm">
+                    <span className="flex items-center justify-center w-6 h-6 bg-[#107C10] rounded-sm">
                       <Zap className="w-3.5 h-3.5 text-white" fill="currentColor" />
                     </span>
                     <h3 className="text-base font-black italic tracking-tighter uppercase">As Mais Lidas da Semana</h3>
@@ -186,7 +186,7 @@ function Index() {
             </div>
 
             <div className="flex justify-center mt-10">
-              <button className="group inline-flex items-center gap-3 bg-[#c026d3] hover:bg-[#a21caf] text-white text-[11px] font-black uppercase tracking-widest px-6 py-3 rounded-sm transition-all">
+              <button className="group inline-flex items-center gap-3 bg-[#107C10] hover:bg-[#0E6A0E] text-white text-[11px] font-black uppercase tracking-widest px-6 py-3 rounded-sm transition-all">
                 Ver mais notícias
                 <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-white/60 group-hover:translate-x-1 transition-transform">→</span>
               </button>
@@ -194,7 +194,7 @@ function Index() {
           </section>
 
           {/* Podcasts e Vídeos */}
-          <section className="relative bg-[#c026d3] py-12 mb-16 overflow-hidden">
+          <section className="relative bg-[#107C10] py-12 mb-16 overflow-hidden">
             <div
               className="absolute inset-0 opacity-20 pointer-events-none"
               style={{
@@ -325,7 +325,7 @@ function CategorySection({ title, bigCards, sideList }: { title: string; bigCard
   return (
     <section className="container mx-auto px-4 mb-12">
       <div className="flex items-center gap-2 mb-6">
-        <span className="flex items-center justify-center w-6 h-6 bg-[#c026d3] rounded-sm">
+        <span className="flex items-center justify-center w-6 h-6 bg-[#107C10] rounded-sm">
           <Zap className="w-3.5 h-3.5 text-white" fill="currentColor" />
         </span>
         <h2 className="text-lg font-black italic tracking-tighter uppercase">{title}</h2>
@@ -345,9 +345,9 @@ function CategorySection({ title, bigCards, sideList }: { title: string; bigCard
             </article>
           ))}
           <div className="sm:col-span-2 pt-2">
-            <a className="inline-flex items-center gap-2 text-foreground/80 hover:text-[#c026d3] text-[11px] font-black uppercase tracking-widest cursor-pointer transition-colors">
+            <a className="inline-flex items-center gap-2 text-foreground/80 hover:text-[#107C10] text-[11px] font-black uppercase tracking-widest cursor-pointer transition-colors">
               Ver mais
-              <span className="text-[#c026d3]">→</span>
+              <span className="text-[#107C10]">→</span>
             </a>
           </div>
         </div>
