@@ -184,6 +184,104 @@ function Index() {
                 </div>
               </aside>
             </div>
+
+            <div className="flex justify-center mt-10">
+              <button className="group inline-flex items-center gap-3 bg-[#c026d3] hover:bg-[#a21caf] text-white text-[11px] font-black uppercase tracking-widest px-6 py-3 rounded-sm transition-all">
+                Ver mais notícias
+                <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-white/60 group-hover:translate-x-1 transition-transform">→</span>
+              </button>
+            </div>
+          </section>
+
+          {/* Podcasts e Vídeos */}
+          <section className="relative bg-[#c026d3] py-12 mb-16 overflow-hidden">
+            <div
+              className="absolute inset-0 opacity-20 pointer-events-none"
+              style={{
+                backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.4) 1.2px, transparent 1.2px)",
+                backgroundSize: "14px 14px",
+              }}
+            />
+            <div className="container mx-auto px-4 relative">
+              <div className="flex items-center gap-2 mb-6">
+                <Zap className="w-4 h-4 text-white" fill="currentColor" />
+                <h2 className="text-lg font-black italic tracking-tighter uppercase text-white">Podcasts e Vídeos</h2>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)] gap-6">
+                {/* Card 1 */}
+                <div className="group cursor-pointer">
+                  <div className="relative aspect-video overflow-hidden rounded-sm bg-black mb-3">
+                    <img
+                      src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop"
+                      alt="GTA Online Secreto"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <span className="absolute top-2 left-2 bg-flow-yellow text-black text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
+                      Podcasts
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="flex items-center justify-center w-6 h-6 bg-flow-yellow rounded-full shrink-0 mt-0.5">
+                      <span className="text-black text-[10px]">▶</span>
+                    </span>
+                    <h3 className="text-[13px] font-black italic uppercase tracking-tight text-flow-yellow leading-snug group-hover:underline">
+                      GTA Online Secreto e Nintendo Switch 2! FGN #83
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Card 2 */}
+                <div className="group cursor-pointer">
+                  <div className="relative aspect-video overflow-hidden rounded-sm bg-black mb-3">
+                    <img
+                      src="https://images.unsplash.com/photo-1606503153255-59d8b8b82176?q=80&w=2070&auto=format&fit=crop"
+                      alt="Cobertura Pokémon Presents"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <span className="absolute top-2 left-2 bg-flow-yellow text-black text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
+                      Vídeos
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="flex items-center justify-center w-6 h-6 bg-flow-yellow rounded-full shrink-0 mt-0.5">
+                      <span className="text-black text-[10px]">▶</span>
+                    </span>
+                    <h3 className="text-[13px] font-black italic uppercase tracking-tight text-flow-yellow leading-snug group-hover:underline">
+                      Cobertura Pokémon Presents!
+                    </h3>
+                  </div>
+
+                  <a className="inline-flex items-center gap-2 mt-6 text-flow-yellow text-[11px] font-black italic uppercase tracking-widest hover:underline cursor-pointer">
+                    <span className="flex items-center justify-center w-5 h-5 bg-flow-yellow rounded-sm">
+                      <span className="text-black text-[8px]">▶</span>
+                    </span>
+                    Acesse nosso canal no YouTube →
+                  </a>
+                </div>
+
+                {/* Right list */}
+                <div className="space-y-4">
+                  {[
+                    { cat: "Podcasts", title: "Animes mais ESTRANHOS da HISTÓRIA! Flowtaku #05", img: "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=2070&auto=format&fit=crop" },
+                    { cat: "Podcasts", title: "CAMILOTA XP, esports é com ela! Flow Games #81", img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop" },
+                    { cat: "Vídeos", title: "LANÇAMENTOS AGUARDADOS de AGOSTO!", img: "https://images.unsplash.com/photo-1614294148960-9aa740632a87?q=80&w=2070&auto=format&fit=crop" },
+                  ].map((item, i) => (
+                    <article key={i} className="group cursor-pointer flex items-start gap-3">
+                      <div className="relative w-28 sm:w-32 aspect-video flex-shrink-0 overflow-hidden rounded-sm bg-black">
+                        <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                      </div>
+                      <div className="flex flex-col min-w-0">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-flow-yellow mb-1">{item.cat}</span>
+                        <h4 className="text-[12px] font-black italic uppercase leading-snug tracking-tight text-flow-yellow group-hover:underline line-clamp-3">
+                          {item.title}
+                        </h4>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </div>
           </section>
         </main>
         <Footer />
