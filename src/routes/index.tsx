@@ -1,6 +1,7 @@
 import { Sidebar } from "@/components/Sidebar";
 import { Footer } from "@/components/Footer";
-import { NewsRow, ReviewCard } from "@/components/NewsComponents";
+import { NewsRow, ReviewCard, MostReadCard } from "@/components/NewsComponents";
+import { Zap } from "lucide-react";
 import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
@@ -110,6 +111,48 @@ function Index() {
                     title="Metaphor: ReFantazio nasce atemporal e é um verdadeiro jogaço"
                     image="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop"
                   />
+                </div>
+
+                {/* As Mais Lidas da Semana */}
+                <div className="mt-8 pt-6 border-t-2 border-dashed border-[#c026d3]/40">
+                  <div className="flex items-center gap-2 mb-5">
+                    <span className="flex items-center justify-center w-6 h-6 bg-[#c026d3] rounded-sm">
+                      <Zap className="w-3.5 h-3.5 text-white" fill="currentColor" />
+                    </span>
+                    <h3 className="text-base font-black italic tracking-tighter uppercase">As Mais Lidas da Semana</h3>
+                  </div>
+                  <div className="space-y-4">
+                    <MostReadCard
+                      category="Dicas"
+                      title="Blox Fruits: veja a lista de códigos no Roblox e saiba como resgatar"
+                      author="Marcelo Rodrigues"
+                      image="https://images.unsplash.com/photo-1606503153255-59d8b8b82176?q=80&w=2070&auto=format&fit=crop"
+                    />
+                    <MostReadCard
+                      category="Dicas"
+                      title="Roblox: veja lista de códigos e saiba como resgatar itens de graça"
+                      author="Marcelo Rodrigues"
+                      image="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?q=80&w=2070&auto=format&fit=crop"
+                    />
+                    <MostReadCard
+                      category="Dicas"
+                      title="Anime Fighters Simulator: veja a lista de códigos e saiba como resgatar"
+                      author="Marcelo Rodrigues"
+                      image="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=2070&auto=format&fit=crop"
+                    />
+                    <MostReadCard
+                      category="Dicas"
+                      title="Qual é o próximo jogo grátis da Epic Games Store? Saiba aqui!"
+                      author="Vinicius Munhoz"
+                      image="https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?q=80&w=2070&auto=format&fit=crop"
+                    />
+                    <MostReadCard
+                      category="Games"
+                      title="Steam: os 10 jogos mais vendidos da semana"
+                      author="Alvaro Neto"
+                      image="https://images.unsplash.com/photo-1614294148960-9aa740632a87?q=80&w=2070&auto=format&fit=crop"
+                    />
+                  </div>
                 </div>
               </aside>
             </div>

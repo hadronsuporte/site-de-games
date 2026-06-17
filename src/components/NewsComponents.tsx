@@ -179,3 +179,37 @@ export function ReviewCard({ score, title, image }: ReviewCardProps) {
     </article>
   );
 }
+
+interface MostReadCardProps {
+  category: string;
+  title: string;
+  author: string;
+  image: string;
+}
+
+export function MostReadCard({ category, title, author, image }: MostReadCardProps) {
+  return (
+    <article className="group cursor-pointer flex items-start gap-3">
+      <div className="flex flex-col min-w-0 flex-1 pt-0.5">
+        <span className="text-[10px] font-black uppercase tracking-widest text-[#c026d3] mb-1">
+          {category}
+        </span>
+        <h4 className="text-[13px] sm:text-sm font-black italic leading-snug tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3 mb-2">
+          {title}
+        </h4>
+        <span className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-muted-foreground truncate">
+          <span className="inline-block w-2 h-2 bg-[#c026d3]" />
+          <span className="truncate">Por {author}</span>
+        </span>
+      </div>
+      <div className="relative w-24 sm:w-28 aspect-square flex-shrink-0 overflow-hidden rounded-sm bg-muted">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          loading="lazy"
+        />
+      </div>
+    </article>
+  );
+}
