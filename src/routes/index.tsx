@@ -145,7 +145,7 @@ function Index() {
                 <div className="mt-8 pt-6 border-t-2 border-dashed border-[#F5C518]/40">
                   <div className="flex items-center gap-2 mb-5">
                     <span className="flex items-center justify-center w-6 h-6 bg-[#F5C518] rounded-sm">
-                      <Zap className="w-3.5 h-3.5 text-white" fill="currentColor" />
+                      <Zap className="w-3.5 h-3.5 text-black" fill="currentColor" />
                     </span>
                     <h3 className="text-base font-black italic tracking-tighter uppercase">As Mais Lidas da Semana</h3>
                   </div>
@@ -186,7 +186,7 @@ function Index() {
             </div>
 
             <div className="flex justify-center mt-10">
-              <button className="group inline-flex items-center gap-3 bg-[#F5C518] hover:bg-[#D4A912] text-white text-[11px] font-black uppercase tracking-widest px-6 py-3 rounded-sm transition-all">
+              <button className="group inline-flex items-center gap-3 bg-[#F5C518] hover:bg-[#D4A912] text-black text-[11px] font-black uppercase tracking-widest px-6 py-3 rounded-sm transition-all">
                 Ver mais notícias
                 <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-white/60 group-hover:translate-x-1 transition-transform">→</span>
               </button>
@@ -205,8 +205,8 @@ function Index() {
             />
             <div className="container mx-auto px-4 relative">
               <div className="flex items-center gap-2 mb-6">
-                <Zap className="w-4 h-4 text-white" fill="currentColor" />
-                <h2 className="text-lg font-black italic tracking-tighter uppercase text-white">Podcasts e Vídeos</h2>
+                <Zap className="w-4 h-4 text-black" fill="currentColor" />
+                <h2 className="text-lg font-black italic tracking-tighter uppercase text-black">Podcasts e Vídeos</h2>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)] gap-6">
@@ -218,15 +218,15 @@ function Index() {
                       alt="GTA Online Secreto"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <span className="absolute top-2 left-2 bg-white text-[#F5C518] text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
+                    <span className="absolute top-2 left-2 bg-black text-[#F5C518] text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
                       Podcasts
                     </span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="flex items-center justify-center w-6 h-6 bg-white rounded-full shrink-0 mt-0.5">
-                      <span className="text-[#F5C518] text-[10px]">▶</span>
+                      <span className="text-black text-[10px]">▶</span>
                     </span>
-                    <h3 className="text-[13px] font-black italic uppercase tracking-tight text-white leading-snug group-hover:underline">
+                    <h3 className="text-[13px] font-black italic uppercase tracking-tight text-black leading-snug group-hover:underline">
                       GTA Online Secreto e Nintendo Switch 2! FGN #83
                     </h3>
                   </div>
@@ -240,20 +240,20 @@ function Index() {
                       alt="Cobertura Pokémon Presents"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <span className="absolute top-2 left-2 bg-white text-[#F5C518] text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
+                    <span className="absolute top-2 left-2 bg-black text-[#F5C518] text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
                       Vídeos
                     </span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="flex items-center justify-center w-6 h-6 bg-white rounded-full shrink-0 mt-0.5">
-                      <span className="text-[#F5C518] text-[10px]">▶</span>
+                      <span className="text-black text-[10px]">▶</span>
                     </span>
-                    <h3 className="text-[13px] font-black italic uppercase tracking-tight text-white leading-snug group-hover:underline">
+                    <h3 className="text-[13px] font-black italic uppercase tracking-tight text-black leading-snug group-hover:underline">
                       Cobertura Pokémon Presents!
                     </h3>
                   </div>
 
-                  <a className="inline-flex items-center gap-2 mt-6 text-white text-[11px] font-black italic uppercase tracking-widest hover:underline cursor-pointer">
+                  <a className="inline-flex items-center gap-2 mt-6 text-black text-[11px] font-black italic uppercase tracking-widest hover:underline cursor-pointer">
                     <span className="flex items-center justify-center w-5 h-5 bg-white rounded-sm">
                       <span className="text-[#F5C518] text-[8px]">▶</span>
                     </span>
@@ -273,8 +273,8 @@ function Index() {
                         <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                       </div>
                       <div className="flex flex-col min-w-0">
-                        <span className="text-[10px] font-black uppercase tracking-widest text-white/80 mb-1">{item.cat}</span>
-                        <h4 className="text-[12px] font-black italic uppercase leading-snug tracking-tight text-white group-hover:underline line-clamp-3">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-black/80 mb-1">{item.cat}</span>
+                        <h4 className="text-[12px] font-black italic uppercase leading-snug tracking-tight text-black group-hover:underline line-clamp-3">
                           {item.title}
                         </h4>
                       </div>
@@ -327,7 +327,7 @@ function CategorySection({ title, bigCards, sideList }: { title: string; bigCard
     <section className="container mx-auto px-4 mb-12">
       <div className="flex items-center gap-2 mb-6">
         <span className="flex items-center justify-center w-6 h-6 bg-[#F5C518] rounded-sm">
-          <Zap className="w-3.5 h-3.5 text-white" fill="currentColor" />
+          <Zap className="w-3.5 h-3.5 text-black" fill="currentColor" />
         </span>
         <h2 className="text-lg font-black italic tracking-tighter uppercase">{title}</h2>
       </div>
