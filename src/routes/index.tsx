@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Play, Zap } from "lucide-react";
 import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
@@ -15,16 +15,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
   const { content } = useSiteContent();
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return <div className="min-h-screen bg-black" />;
-  }
 
   const featuredVideos = content.videos.slice(0, 2);
   const sideVideos = content.videos.slice(2, 5);
