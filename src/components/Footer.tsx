@@ -98,7 +98,7 @@ export function Footer() {
             <div className="text-[11px] text-white/50 text-center md:text-left leading-relaxed">
               <p>© 2024 Games4Gamers. Todos os direitos reservados.</p>
               <p>
-                Desenvolvido por <a href="#" className="underline hover:text-flow-yellow">Wolfvision</a>
+                Desenvolvido por <a href="#" className="underline hover:text-flow-yellow">Xgiggsbr</a>
               </p>
             </div>
             <div className="flex items-center gap-8 text-white/70">
