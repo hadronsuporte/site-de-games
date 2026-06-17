@@ -46,7 +46,7 @@ function Index() {
               </button>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,4fr)_minmax(0,1.2fr)] gap-4 lg:gap-5">
+            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,3fr)_minmax(0,1.5fr)] gap-4 lg:gap-5">
               {/* Coluna esquerda: notícias */}
               <div className="lg:border-r lg:border-border lg:pr-4 xl:pr-5">
                 <NewsRow
