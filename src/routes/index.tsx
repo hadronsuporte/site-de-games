@@ -1,7 +1,7 @@
 import { Sidebar } from "@/components/Sidebar";
 import { Footer } from "@/components/Footer";
 import { NewsRow, ReviewCard, MostReadCard } from "@/components/NewsComponents";
-import { Zap } from "lucide-react";
+import { Zap, Youtube, Play, ArrowRight } from "lucide-react";
 import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
 import gamingDoodles from "@/assets/gaming-doodles.png.asset.json";
 import { createFileRoute } from "@tanstack/react-router";
@@ -187,9 +187,11 @@ function Index() {
             </div>
 
             <div className="flex justify-center mt-10">
-              <button className="group inline-flex items-center gap-3 bg-[#F5C518] hover:bg-[#D4A912] text-black text-[11px] font-black uppercase tracking-widest px-6 py-3 rounded-sm transition-all">
-                Ver mais notícias
-                <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-white/60 group-hover:translate-x-1 transition-transform">→</span>
+              <button className="group relative inline-flex items-center gap-3 bg-gradient-to-b from-[#FFD83D] to-[#F5C518] hover:from-[#FFE055] hover:to-[#E8B810] text-black text-[11px] font-black uppercase tracking-[0.2em] px-8 py-4 rounded-md shadow-[0_6px_0_0_#9A7A0E,0_10px_20px_-6px_rgba(245,197,24,0.6)] hover:shadow-[0_4px_0_0_#9A7A0E,0_8px_16px_-6px_rgba(245,197,24,0.7)] hover:translate-y-[2px] active:translate-y-[6px] active:shadow-[0_0_0_0_#9A7A0E] transition-all duration-150 border border-black/10">
+                <span className="relative">Ver mais notícias</span>
+                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full border-[1.5px] border-black/70 group-hover:bg-black/10 group-hover:translate-x-1 transition-all">
+                  <ArrowRight className="w-3 h-3" strokeWidth={3} />
+                </span>
               </button>
             </div>
           </section>
@@ -224,10 +226,10 @@ function Index() {
                     </span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="flex items-center justify-center w-6 h-6 bg-white rounded-full shrink-0 mt-0.5">
-                      <span className="text-black text-[10px]">▶</span>
+                    <span className="flex items-center justify-center w-7 h-7 bg-white rounded-full shrink-0 mt-0.5 shadow-md">
+                      <Play className="w-3 h-3 text-black fill-black ml-0.5" />
                     </span>
-                    <h3 className="text-[13px] font-black italic uppercase tracking-tight text-black leading-snug group-hover:underline">
+                    <h3 className="text-[13px] font-black italic uppercase tracking-tight text-white leading-snug group-hover:underline drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
                       GTA Online Secreto e Nintendo Switch 2! FGN #83
                     </h3>
                   </div>
@@ -246,19 +248,20 @@ function Index() {
                     </span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="flex items-center justify-center w-6 h-6 bg-white rounded-full shrink-0 mt-0.5">
-                      <span className="text-black text-[10px]">▶</span>
+                    <span className="flex items-center justify-center w-7 h-7 bg-white rounded-full shrink-0 mt-0.5 shadow-md">
+                      <Play className="w-3 h-3 text-black fill-black ml-0.5" />
                     </span>
-                    <h3 className="text-[13px] font-black italic uppercase tracking-tight text-black leading-snug group-hover:underline">
+                    <h3 className="text-[13px] font-black italic uppercase tracking-tight text-white leading-snug group-hover:underline drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
                       Cobertura Pokémon Presents!
                     </h3>
                   </div>
 
-                  <a className="inline-flex items-center gap-2 mt-6 text-black text-[11px] font-black italic uppercase tracking-widest hover:underline cursor-pointer">
-                    <span className="flex items-center justify-center w-5 h-5 bg-white rounded-sm">
-                      <span className="text-[#F5C518] text-[8px]">▶</span>
+                  <a className="group/yt inline-flex items-center gap-2.5 mt-6 text-white text-[11px] font-black italic uppercase tracking-widest hover:text-white cursor-pointer drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
+                    <span className="flex items-center justify-center w-8 h-6 bg-[#FF0000] rounded-md shadow-md group-hover/yt:scale-110 transition-transform">
+                      <Play className="w-3 h-3 text-white fill-white ml-0.5" />
                     </span>
-                    Acesse nosso canal no YouTube →
+                    <span className="group-hover/yt:underline">Acesse nosso canal no YouTube</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/yt:translate-x-1 transition-transform" strokeWidth={3} />
                   </a>
                 </div>
 
@@ -274,8 +277,8 @@ function Index() {
                         <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                       </div>
                       <div className="flex flex-col min-w-0">
-                        <span className="text-[10px] font-black uppercase tracking-widest text-black/80 mb-1">{item.cat}</span>
-                        <h4 className="text-[12px] font-black italic uppercase leading-snug tracking-tight text-black group-hover:underline line-clamp-3">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-white/90 mb-1 drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]">{item.cat}</span>
+                        <h4 className="text-[12px] font-black italic uppercase leading-snug tracking-tight text-white group-hover:underline line-clamp-3 drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
                           {item.title}
                         </h4>
                       </div>
