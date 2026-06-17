@@ -11,16 +11,13 @@ function record(error: unknown) {
 if (typeof globalThis.addEventListener === "function") {
   globalThis.addEventListener("error", (event) => {
     const error = (event as ErrorEvent).error ?? event;
-    console.log("RECORD ERROR", error);
     record(error);
   });
   globalThis.addEventListener("unhandledrejection", (event) => {
     const reason = (event as PromiseRejectionEvent).reason;
-    console.log("RECORD REJECTION", reason);
     record(reason);
   });
 }
-
 
 export function consumeLastCapturedError(): unknown {
   if (!lastCapturedError) return undefined;
