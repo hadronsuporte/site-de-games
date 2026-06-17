@@ -63,12 +63,12 @@ export function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
       <div className={cn("p-6 mb-2", isCollapsed && "flex justify-center p-4")}>
         <Link to="/" className="flex items-center gap-2 group">
           <div className="relative w-8 h-8 bg-foreground flex items-center justify-center rounded-sm transition-transform group-hover:scale-105 flex-shrink-0">
-            <span className="text-background font-black text-lg italic">F</span>
+            <span className="text-background font-black text-lg italic">G</span>
           </div>
           {!isCollapsed && (
             <div className="flex flex-col -gap-1">
-              <span className="text-foreground font-black text-xl tracking-tighter leading-none italic">FLOW</span>
-              <span className="text-foreground font-black text-xl tracking-tighter leading-none italic">GAMES</span>
+              <span className="text-foreground font-black text-xl tracking-tighter leading-none italic">GAMES4</span>
+              <span className="text-foreground font-black text-xl tracking-tighter leading-none italic">GAMERS</span>
             </div>
           )}
         </Link>

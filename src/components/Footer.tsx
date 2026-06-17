@@ -103,17 +103,11 @@ export function Footer() {
             </div>
             <div className="flex items-center gap-8 text-white/70">
               <div className="flex items-center gap-2">
-                <Zap className="w-5 h-5 text-flow-yellow" fill="currentColor" />
-                <span className="text-[11px] font-black uppercase tracking-widest">
-                  Grupo<br />Flow
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
                 <span className="flex items-center justify-center w-7 h-7 bg-flow-yellow rounded-sm text-black font-black italic text-xs">
-                  FG
+                  G4G
                 </span>
                 <span className="text-[11px] font-black uppercase tracking-widest italic">
-                  Flow<br />Games
+                  Games4<br />Gamers
                 </span>
               </div>
               <div className="w-7 h-7 grid place-items-center border border-white/40 rounded-sm text-white/70 font-black italic text-xs">
