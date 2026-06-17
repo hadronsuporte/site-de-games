@@ -196,10 +196,11 @@ function Index() {
           {/* Podcasts e Vídeos */}
           <section className="relative bg-[#107C10] py-12 mb-16 overflow-hidden">
             <div
-              className="absolute inset-0 opacity-20 pointer-events-none"
+              className="absolute inset-0 opacity-[0.12] pointer-events-none"
               style={{
-                backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.4) 1.2px, transparent 1.2px)",
-                backgroundSize: "14px 14px",
+                backgroundImage:
+                  "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><g transform='translate(6 14)'><path d='M6 12 Q0 12 0 6 Q0 0 6 0 H22 Q28 0 28 6 Q28 12 22 12 Z'/><circle cx='6' cy='6' r='1.2'/><circle cx='22' cy='6' r='1.2'/></g><g transform='translate(46 44)'><circle cx='8' cy='8' r='8'/><path d='M2 8 H14 M8 2 V14'/></g><g transform='translate(10 50)'><path d='M0 6 L6 0 L12 6 L6 12 Z'/></g><g transform='translate(54 8)'><rect x='0' y='0' width='14' height='10' rx='2'/><path d='M3 5 H11'/></g></svg>\")",
+                backgroundSize: "120px 120px",
               }}
             />
             <div className="container mx-auto px-4 relative">
@@ -217,15 +218,15 @@ function Index() {
                       alt="GTA Online Secreto"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <span className="absolute top-2 left-2 bg-flow-yellow text-black text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
+                    <span className="absolute top-2 left-2 bg-white text-[#107C10] text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
                       Podcasts
                     </span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="flex items-center justify-center w-6 h-6 bg-flow-yellow rounded-full shrink-0 mt-0.5">
-                      <span className="text-black text-[10px]">▶</span>
+                    <span className="flex items-center justify-center w-6 h-6 bg-white rounded-full shrink-0 mt-0.5">
+                      <span className="text-[#107C10] text-[10px]">▶</span>
                     </span>
-                    <h3 className="text-[13px] font-black italic uppercase tracking-tight text-flow-yellow leading-snug group-hover:underline">
+                    <h3 className="text-[13px] font-black italic uppercase tracking-tight text-white leading-snug group-hover:underline">
                       GTA Online Secreto e Nintendo Switch 2! FGN #83
                     </h3>
                   </div>
@@ -239,22 +240,22 @@ function Index() {
                       alt="Cobertura Pokémon Presents"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <span className="absolute top-2 left-2 bg-flow-yellow text-black text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
+                    <span className="absolute top-2 left-2 bg-white text-[#107C10] text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
                       Vídeos
                     </span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="flex items-center justify-center w-6 h-6 bg-flow-yellow rounded-full shrink-0 mt-0.5">
-                      <span className="text-black text-[10px]">▶</span>
+                    <span className="flex items-center justify-center w-6 h-6 bg-white rounded-full shrink-0 mt-0.5">
+                      <span className="text-[#107C10] text-[10px]">▶</span>
                     </span>
-                    <h3 className="text-[13px] font-black italic uppercase tracking-tight text-flow-yellow leading-snug group-hover:underline">
+                    <h3 className="text-[13px] font-black italic uppercase tracking-tight text-white leading-snug group-hover:underline">
                       Cobertura Pokémon Presents!
                     </h3>
                   </div>
 
-                  <a className="inline-flex items-center gap-2 mt-6 text-flow-yellow text-[11px] font-black italic uppercase tracking-widest hover:underline cursor-pointer">
-                    <span className="flex items-center justify-center w-5 h-5 bg-flow-yellow rounded-sm">
-                      <span className="text-black text-[8px]">▶</span>
+                  <a className="inline-flex items-center gap-2 mt-6 text-white text-[11px] font-black italic uppercase tracking-widest hover:underline cursor-pointer">
+                    <span className="flex items-center justify-center w-5 h-5 bg-white rounded-sm">
+                      <span className="text-[#107C10] text-[8px]">▶</span>
                     </span>
                     Acesse nosso canal no YouTube →
                   </a>
@@ -272,8 +273,8 @@ function Index() {
                         <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                       </div>
                       <div className="flex flex-col min-w-0">
-                        <span className="text-[10px] font-black uppercase tracking-widest text-flow-yellow mb-1">{item.cat}</span>
-                        <h4 className="text-[12px] font-black italic uppercase leading-snug tracking-tight text-flow-yellow group-hover:underline line-clamp-3">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-white/80 mb-1">{item.cat}</span>
+                        <h4 className="text-[12px] font-black italic uppercase leading-snug tracking-tight text-white group-hover:underline line-clamp-3">
                           {item.title}
                         </h4>
                       </div>
