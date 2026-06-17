@@ -21,7 +21,9 @@ export function NewsCard({ category, title, author, date, image, horizontal }: N
           />
         </div>
         <div className="flex flex-col py-1">
-          <span className="text-[9px] font-black text-flow-yellow uppercase mb-2 tracking-widest">{category}</span>
+          <span className="text-[9px] font-black text-flow-yellow uppercase mb-2 tracking-widest">
+            {category}
+          </span>
           <h3 className="text-[15px] font-black leading-snug group-hover:text-flow-yellow transition-colors line-clamp-2 italic">
             {title}
           </h3>
@@ -111,12 +113,13 @@ export function HeroBanner({ category, title, summary, author, date, image }: He
 interface NewsRowProps {
   category: string;
   title: string;
+  summary?: string;
   author: string;
   date: string;
   image: string;
 }
 
-export function NewsRow({ category, title, author, date, image }: NewsRowProps) {
+export function NewsRow({ category, title, summary, author, date, image }: NewsRowProps) {
   return (
     <article className="group cursor-pointer py-5 border-b border-border last:border-b-0">
       <div className="grid grid-cols-[110px_minmax(0,1fr)] sm:grid-cols-[160px_minmax(0,1fr)] gap-4 sm:gap-5">
@@ -135,6 +138,11 @@ export function NewsRow({ category, title, author, date, image }: NewsRowProps) 
           <h3 className="text-sm sm:text-base md:text-lg font-black italic leading-[1.25] tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3 mb-3 max-w-[28ch] sm:max-w-[30ch] md:max-w-[32ch]">
             {title}
           </h3>
+          {summary && (
+            <p className="hidden text-xs font-semibold leading-relaxed text-muted-foreground line-clamp-2 sm:block">
+              {summary}
+            </p>
+          )}
           <div className="mt-auto pt-2.5 border-t border-border/70 flex items-center justify-between gap-3 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-muted-foreground">
             <span className="flex items-center gap-1.5 truncate">
               <span className="inline-block w-2 h-2 bg-[#F5C518]" />

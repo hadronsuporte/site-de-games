@@ -58,6 +58,7 @@ function Index() {
                     key={item.id}
                     category={item.category}
                     title={item.title}
+                    summary={item.summary}
                     author={item.author}
                     date={item.date}
                     image={item.image}
@@ -137,7 +138,13 @@ function Index() {
 
               <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)] gap-6">
                 {featuredVideos.map((item, index) => (
-                  <div className="group cursor-pointer" key={item.id}>
+                  <a
+                    className="group block cursor-pointer"
+                    href={item.url}
+                    key={item.id}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     <div className="relative aspect-video overflow-hidden rounded-sm bg-black mb-3">
                       <img
                         src={item.image}
@@ -161,10 +168,7 @@ function Index() {
                     </div>
 
                     {index === 1 && (
-                      <a
-                        href={item.url}
-                        className="group/yt inline-flex items-center gap-2.5 mt-6 text-white text-[11px] font-black italic uppercase tracking-widest hover:text-white cursor-pointer drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
-                      >
+                      <span className="group/yt inline-flex items-center gap-2.5 mt-6 text-white text-[11px] font-black italic uppercase tracking-widest hover:text-white cursor-pointer drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
                         <span className="flex items-center justify-center w-8 h-6 bg-[#FF0000] rounded-md shadow-md group-hover/yt:scale-110 transition-transform">
                           <Play className="w-3 h-3 text-white fill-white ml-0.5" />
                         </span>
@@ -175,14 +179,20 @@ function Index() {
                           className="w-3.5 h-3.5 group-hover/yt:translate-x-1 transition-transform"
                           strokeWidth={3}
                         />
-                      </a>
+                      </span>
                     )}
-                  </div>
+                  </a>
                 ))}
 
                 <div className="space-y-4">
                   {sideVideos.map((item) => (
-                    <article key={item.id} className="group cursor-pointer flex items-start gap-3">
+                    <a
+                      key={item.id}
+                      className="group flex cursor-pointer items-start gap-3"
+                      href={item.url}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
                       <div className="relative w-28 sm:w-32 aspect-video flex-shrink-0 overflow-hidden rounded-sm bg-black">
                         <img
                           src={item.image}
@@ -202,7 +212,7 @@ function Index() {
                           {item.title}
                         </h4>
                       </div>
-                    </article>
+                    </a>
                   ))}
                 </div>
               </div>

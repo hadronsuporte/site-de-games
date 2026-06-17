@@ -1,4 +1,4 @@
-import { type ChangeEvent, type ReactNode, useMemo, useState } from "react";
+import { type ChangeEvent, type ReactNode, useEffect, useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   BarChart3,
@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import {
   createContentId,
+  defaultSiteContent,
   type CategoryItemContent,
   type CategorySectionContent,
   type FeaturedNewsContent,
@@ -63,9 +64,23 @@ const tabs: Array<{ id: AdminTab; label: string; icon: ReactNode }> = [
 ];
 
 function AdminPage() {
-  const { content, setContent, resetContent } = useSiteContent();
+  const { content: publishedContent, setContent, resetContent } = useSiteContent();
+  const [content, setDraftContent] = useState<SiteContent>(publishedContent);
   const [activeTab, setActiveTab] = useState<AdminTab>("overview");
+  const [hasPendingChanges, setHasPendingChanges] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
   const [savedAt, setSavedAt] = useState<string>("Alterações salvas localmente");
+  const saveStatusClassName = saveError
+    ? "bg-red-100 text-red-800 dark:bg-red-500/15 dark:text-red-300"
+    : hasPendingChanges
+      ? "bg-amber-100 text-amber-900 dark:bg-amber-500/15 dark:text-amber-300"
+      : "bg-emerald-100 text-emerald-800 dark:bg-emerald-500/15 dark:text-emerald-300";
+
+  useEffect(() => {
+    if (!hasPendingChanges) {
+      setDraftContent(publishedContent);
+    }
+  }, [hasPendingChanges, publishedContent]);
 
   const metrics = useMemo(
     () => [
@@ -82,10 +97,26 @@ function AdminPage() {
   const updateContent = (updater: (draft: SiteContent) => void) => {
     const draft = cloneContent(content);
     updater(draft);
-    setContent(draft);
-    setSavedAt(
-      `Salvo às ${new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}`,
-    );
+    setDraftContent(draft);
+    setHasPendingChanges(true);
+    setSaveError(null);
+    setSavedAt("Alterações pendentes");
+  };
+
+  const handleSave = () => {
+    const result = setContent(content);
+
+    if (result.ok) {
+      setHasPendingChanges(false);
+      setSaveError(null);
+      setSavedAt(
+        `Publicado às ${new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}`,
+      );
+      return;
+    }
+
+    setSaveError(result.error ?? "Não foi possível salvar as alterações.");
+    setSavedAt("Erro ao salvar");
   };
 
   const handleReset = () => {
@@ -93,8 +124,17 @@ function AdminPage() {
       return;
     }
 
-    resetContent();
-    setSavedAt("Conteúdo inicial restaurado");
+    const result = resetContent();
+
+    if (result.ok) {
+      setDraftContent(defaultSiteContent);
+      setHasPendingChanges(false);
+      setSaveError(null);
+      setSavedAt("Conteúdo inicial restaurado");
+      return;
+    }
+
+    setSaveError(result.error ?? "Não foi possível restaurar o conteúdo inicial.");
   };
 
   return (
@@ -158,10 +198,28 @@ function AdminPage() {
               </h2>
             </div>
             <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-2 text-xs font-black uppercase text-emerald-800 dark:bg-emerald-500/15 dark:text-emerald-300">
+              <span
+                className={cn(
+                  "inline-flex items-center gap-2 rounded-full px-3 py-2 text-xs font-black uppercase",
+                  saveStatusClassName,
+                )}
+              >
                 <Save size={14} />
                 {savedAt}
               </span>
+              <button
+                type="button"
+                onClick={handleSave}
+                className={cn(
+                  "inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-black uppercase transition-colors",
+                  hasPendingChanges
+                    ? "bg-[#F5C518] text-black hover:bg-[#D4A912]"
+                    : "border border-black/10 bg-slate-100 text-slate-700 hover:bg-slate-200 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/20",
+                )}
+              >
+                <Save size={16} />
+                Salvar e publicar
+              </button>
               <Link
                 to="/"
                 className="inline-flex items-center gap-2 rounded-md bg-black px-4 py-2 text-sm font-black uppercase text-white hover:bg-slate-800 dark:bg-white dark:text-black"
@@ -189,6 +247,18 @@ function AdminPage() {
               </button>
             ))}
           </div>
+
+          {hasPendingChanges && !saveError && (
+            <p className="mt-3 text-xs font-black uppercase tracking-widest text-amber-700 dark:text-amber-300">
+              Existem alterações no rascunho. Clique em Salvar e publicar para atualizar o site.
+            </p>
+          )}
+
+          {saveError && (
+            <div className="mt-3 rounded-md border border-red-500/30 bg-red-50 px-4 py-3 text-sm font-bold text-red-700 dark:bg-red-500/10 dark:text-red-300">
+              {saveError}
+            </div>
+          )}
         </header>
 
         <div className="px-4 py-6 sm:px-6 lg:px-8">
@@ -1127,29 +1197,34 @@ function TextAreaField({
 }
 
 function ImageField({ value, onChange }: { value: string; onChange: (value: string) => void }) {
-  const handleImageFile = (event: ChangeEvent<HTMLInputElement>) => {
+  const [isOptimizing, setIsOptimizing] = useState(false);
+  const [imageError, setImageError] = useState<string | null>(null);
+
+  const handleImageFile = async (event: ChangeEvent<HTMLInputElement>) => {
+    const input = event.target;
     const file = event.target.files?.[0];
     if (!file) {
       return;
     }
 
     if (!file.type.startsWith("image/")) {
-      window.alert("Escolha um arquivo de imagem.");
-      event.target.value = "";
+      setImageError("Escolha um arquivo de imagem.");
+      input.value = "";
       return;
     }
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (typeof reader.result === "string") {
-        onChange(reader.result);
-      }
-    };
-    reader.onerror = () => {
-      window.alert("Não foi possível carregar a imagem. Tente outro arquivo.");
-    };
-    reader.readAsDataURL(file);
-    event.target.value = "";
+    setImageError(null);
+    setIsOptimizing(true);
+
+    try {
+      onChange(await optimizeImageFile(file));
+    } catch (error) {
+      console.error("Failed to optimize image", error);
+      setImageError("Não foi possível carregar essa imagem. Tente outro arquivo ou cole uma URL.");
+    } finally {
+      setIsOptimizing(false);
+      input.value = "";
+    }
   };
 
   return (
@@ -1165,7 +1240,7 @@ function ImageField({ value, onChange }: { value: string; onChange: (value: stri
         <div className="flex flex-wrap items-center gap-2">
           <label className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-md bg-black px-3 py-2 text-xs font-black uppercase text-white transition hover:bg-slate-800 dark:bg-white dark:text-black dark:hover:bg-slate-200">
             <ImageIcon size={14} />
-            Escolher imagem
+            {isOptimizing ? "Otimizando..." : "Escolher imagem"}
             <input
               type="file"
               accept="image/png,image/jpeg,image/webp,image/gif"
@@ -1181,12 +1256,53 @@ function ImageField({ value, onChange }: { value: string; onChange: (value: stri
             Usar padrão
           </button>
         </div>
-        <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
-          Use upload local ou cole uma URL externa.
+        <p
+          className={cn(
+            "text-[10px] font-bold uppercase tracking-widest",
+            imageError ? "text-red-600 dark:text-red-300" : "text-slate-500 dark:text-slate-400",
+          )}
+        >
+          {imageError ?? "Use upload local otimizado ou cole uma URL externa."}
         </p>
       </div>
     </div>
   );
+}
+
+function optimizeImageFile(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    const objectUrl = URL.createObjectURL(file);
+
+    image.onload = () => {
+      const maxSize = 1400;
+      const scale = Math.min(1, maxSize / Math.max(image.width, image.height));
+      const width = Math.max(1, Math.round(image.width * scale));
+      const height = Math.max(1, Math.round(image.height * scale));
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("2d");
+
+      canvas.width = width;
+      canvas.height = height;
+
+      if (!context) {
+        URL.revokeObjectURL(objectUrl);
+        reject(new Error("Canvas context unavailable"));
+        return;
+      }
+
+      context.drawImage(image, 0, 0, width, height);
+      URL.revokeObjectURL(objectUrl);
+      resolve(canvas.toDataURL("image/jpeg", 0.82));
+    };
+
+    image.onerror = () => {
+      URL.revokeObjectURL(objectUrl);
+      reject(new Error("Image load failed"));
+    };
+
+    image.src = objectUrl;
+  });
 }
 
 function AddButton({

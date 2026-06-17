@@ -518,13 +518,24 @@ export function readSiteContent(): SiteContent {
   }
 }
 
-export function writeSiteContent(content: SiteContent) {
+export type WriteSiteContentResult = { ok: true } | { ok: false; error: string };
+
+export function writeSiteContent(content: SiteContent): WriteSiteContentResult {
   if (typeof window === "undefined") {
-    return;
+    return { ok: true };
   }
 
-  window.localStorage.setItem(SITE_CONTENT_STORAGE_KEY, JSON.stringify(content));
-  window.dispatchEvent(new CustomEvent(SITE_CONTENT_EVENT, { detail: content }));
+  try {
+    window.localStorage.setItem(SITE_CONTENT_STORAGE_KEY, JSON.stringify(content));
+    window.dispatchEvent(new CustomEvent(SITE_CONTENT_EVENT, { detail: content }));
+    return { ok: true };
+  } catch (error) {
+    console.error("Failed to save site content", error);
+    return {
+      ok: false,
+      error: "Não foi possível salvar. Tente imagens menores ou remova algumas imagens locais.",
+    };
+  }
 }
 
 export function useSiteContent() {
@@ -554,13 +565,23 @@ export function useSiteContent() {
   }, []);
 
   const setContent = useCallback((nextContent: SiteContent) => {
-    setContentState(nextContent);
-    writeSiteContent(nextContent);
+    const result = writeSiteContent(nextContent);
+
+    if (result.ok) {
+      setContentState(nextContent);
+    }
+
+    return result;
   }, []);
 
   const resetContent = useCallback(() => {
-    setContentState(defaultSiteContent);
-    writeSiteContent(defaultSiteContent);
+    const result = writeSiteContent(defaultSiteContent);
+
+    if (result.ok) {
+      setContentState(defaultSiteContent);
+    }
+
+    return result;
   }, []);
 
   return { content, setContent, resetContent };
