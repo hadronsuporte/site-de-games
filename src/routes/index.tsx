@@ -77,6 +77,34 @@ function Index() {
                   date="10.06.2026 às 09:55"
                   image="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop"
                 />
+                <NewsRow
+                  category="Games"
+                  title="Fable terá diferentes níveis de dificuldade"
+                  author="Alvaro Neto"
+                  date="17.06.2026 às 10:56"
+                  image="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=2070&auto=format&fit=crop"
+                />
+                <NewsRow
+                  category="FG Cards by Copag"
+                  title="Por que Disney Lorcana funciona tão bem como produto familiar?"
+                  author="Equipe Flow Games"
+                  date="17.06.2026 às 10:00"
+                  image="https://images.unsplash.com/photo-1606503153255-59d8b8b82176?q=80&w=2070&auto=format&fit=crop"
+                />
+                <NewsRow
+                  category="Games"
+                  title="Oferta de férias da PS Store: veja 15 jogos por menos de R$ 60"
+                  author="Thais Bassani"
+                  date="17.06.2026 às 9:44"
+                  image="https://images.unsplash.com/photo-1593305841991-05c297ba4575?q=80&w=2070&auto=format&fit=crop"
+                />
+                <NewsRow
+                  category="Games"
+                  title="Outward 2 é adiado para 2027"
+                  author="Thomas Schulze"
+                  date="16.06.2026 às 14:54"
+                  image="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=2070&auto=format&fit=crop"
+                />
               </div>
 
               {/* Coluna direita: reviews */}
