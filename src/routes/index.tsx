@@ -100,6 +100,16 @@ function Index() {
                     title="Hellblade II: Senua's Saga impressiona pela direção visual"
                     image="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=2070&auto=format&fit=crop"
                   />
+                  <ReviewCard
+                    score="8.5"
+                    title="Black Myth: Wukong surpreende com combate fluido e visuais deslumbrantes"
+                    image="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop"
+                  />
+                  <ReviewCard
+                    score="9.2"
+                    title="Metaphor: ReFantazio nasce atemporal e é um verdadeiro jogaço"
+                    image="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop"
+                  />
                 </div>
               </aside>
             </div>
