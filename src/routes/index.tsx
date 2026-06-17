@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { NewsRow, ReviewCard, MostReadCard } from "@/components/NewsComponents";
 import { Zap } from "lucide-react";
 import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
+import gamingDoodles from "@/assets/gaming-doodles.png.asset.json";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
