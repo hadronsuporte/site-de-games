@@ -9,11 +9,11 @@ export function Footer() {
     },
     {
       title: "Nossos Canais",
-      links: ["Flow Games", "Cortes do Flow Games", "Flow Games Trailers", "Gameplayrj", "Discord", "WhatsApp", "Telegram"],
+      links: ["Games4Gamers", "Cortes do Games4Gamers", "Games4Gamers Trailers", "Gameplayrj", "Discord", "WhatsApp", "Telegram"],
     },
     {
       title: "Serviços FG",
-      links: ["Flow Games Store", "Flow Ping", "Low Games", "Games em Promoção", "Faz a Boa!", "Seja Membro"],
+      links: ["Games4Gamers Store", "Flow Ping", "Low Games", "Games em Promoção", "Faz a Boa!", "Seja Membro"],
     },
     {
       title: "Conheça o Grupo Flow",
@@ -96,7 +96,7 @@ export function Footer() {
           {/* Bottom row */}
           <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-[11px] text-white/50 text-center md:text-left leading-relaxed">
-              <p>© 2024 Flow Games. Todos os direitos reservados.</p>
+              <p>© 2024 Games4Gamers. Todos os direitos reservados.</p>
               <p>
                 Desenvolvido por <a href="#" className="underline hover:text-flow-yellow">Wolfvision</a>
               </p>

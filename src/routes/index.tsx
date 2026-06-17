@@ -52,56 +52,56 @@ function Index() {
                 <NewsRow
                   category="Reviews"
                   title="Review: Elden Ring: Shadow of the Erdtree é a perfeição em forma de DLC"
-                  author="Bruno Micali"
+                  author="Guss"
                   date="12.06.2026 às 12:28"
                   image="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?q=80&w=2071&auto=format&fit=crop"
                 />
                 <NewsRow
                   category="Esports"
                   title="CBLOL 2026: LOUD e paiN Gaming se enfrentam na grande final"
-                  author="Vitor Almeida"
+                  author="Guss"
                   date="11.06.2026 às 19:42"
                   image="https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=2084&auto=format&fit=crop"
                 />
                 <NewsRow
                   category="Cinema & TV"
                   title="Deadpool & Wolverine quebra recordes de bilheteria mundial"
-                  author="Igor Santos"
+                  author="Guss"
                   date="11.06.2026 às 14:10"
                   image="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=2070&auto=format&fit=crop"
                 />
                 <NewsRow
                   category="Games"
                   title="GTA VI: Novos rumores sugerem trailer em breve para os fãs"
-                  author="Phoenix Lima"
+                  author="Guss"
                   date="10.06.2026 às 09:55"
                   image="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop"
                 />
                 <NewsRow
                   category="Games"
                   title="Fable terá diferentes níveis de dificuldade"
-                  author="Alvaro Neto"
+                  author="Guss"
                   date="17.06.2026 às 10:56"
                   image="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=2070&auto=format&fit=crop"
                 />
                 <NewsRow
                   category="FG Cards by Copag"
                   title="Por que Disney Lorcana funciona tão bem como produto familiar?"
-                  author="Equipe Flow Games"
+                  author="Guss"
                   date="17.06.2026 às 10:00"
                   image="https://images.unsplash.com/photo-1606503153255-59d8b8b82176?q=80&w=2070&auto=format&fit=crop"
                 />
                 <NewsRow
                   category="Games"
                   title="Oferta de férias da PS Store: veja 15 jogos por menos de R$ 60"
-                  author="Thais Bassani"
+                  author="Guss"
                   date="17.06.2026 às 9:44"
                   image="https://images.unsplash.com/photo-1593305841991-05c297ba4575?q=80&w=2070&auto=format&fit=crop"
                 />
                 <NewsRow
                   category="Games"
                   title="Outward 2 é adiado para 2027"
-                  author="Thomas Schulze"
+                  author="Guss"
                   date="16.06.2026 às 14:54"
                   image="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=2070&auto=format&fit=crop"
                 />
@@ -153,31 +153,31 @@ function Index() {
                     <MostReadCard
                       category="Dicas"
                       title="Blox Fruits: veja a lista de códigos no Roblox e saiba como resgatar"
-                      author="Marcelo Rodrigues"
+                      author="Guss"
                       image="https://images.unsplash.com/photo-1606503153255-59d8b8b82176?q=80&w=2070&auto=format&fit=crop"
                     />
                     <MostReadCard
                       category="Dicas"
                       title="Roblox: veja lista de códigos e saiba como resgatar itens de graça"
-                      author="Marcelo Rodrigues"
+                      author="Guss"
                       image="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?q=80&w=2070&auto=format&fit=crop"
                     />
                     <MostReadCard
                       category="Dicas"
                       title="Anime Fighters Simulator: veja a lista de códigos e saiba como resgatar"
-                      author="Marcelo Rodrigues"
+                      author="Guss"
                       image="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=2070&auto=format&fit=crop"
                     />
                     <MostReadCard
                       category="Dicas"
                       title="Qual é o próximo jogo grátis da Epic Games Store? Saiba aqui!"
-                      author="Vinicius Munhoz"
+                      author="Guss"
                       image="https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?q=80&w=2070&auto=format&fit=crop"
                     />
                     <MostReadCard
                       category="Games"
                       title="Steam: os 10 jogos mais vendidos da semana"
-                      author="Alvaro Neto"
+                      author="Guss"
                       image="https://images.unsplash.com/photo-1614294148960-9aa740632a87?q=80&w=2070&auto=format&fit=crop"
                     />
                   </div>
@@ -264,7 +264,7 @@ function Index() {
                 <div className="space-y-4">
                   {[
                     { cat: "Podcasts", title: "Animes mais ESTRANHOS da HISTÓRIA! Flowtaku #05", img: "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=2070&auto=format&fit=crop" },
-                    { cat: "Podcasts", title: "CAMILOTA XP, esports é com ela! Flow Games #81", img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop" },
+                    { cat: "Podcasts", title: "CAMILOTA XP, esports é com ela! Games4Gamers #81", img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop" },
                     { cat: "Vídeos", title: "LANÇAMENTOS AGUARDADOS de AGOSTO!", img: "https://images.unsplash.com/photo-1614294148960-9aa740632a87?q=80&w=2070&auto=format&fit=crop" },
                   ].map((item, i) => (
                     <article key={i} className="group cursor-pointer flex items-start gap-3">
@@ -305,7 +305,7 @@ function Index() {
             ]}
             sideList={[
               { title: "Blox Fruits: veja a lista de códigos no Roblox e saiba como resgatar", image: "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?q=80&w=2070&auto=format&fit=crop" },
-              { title: "Saiba qual é a agenda de podcasts do Flow Games nesta semana", image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop" },
+              { title: "Saiba qual é a agenda de podcasts do Games4Gamers nesta semana", image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop" },
               { title: "Voidling Bound faz sucesso na Steam com mistura inusitada", image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=2070&auto=format&fit=crop" },
             ]}
           />
