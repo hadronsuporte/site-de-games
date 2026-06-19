@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Play, Zap } from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
 import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
 import { Footer } from "@/components/Footer";
 import { MostReadCard, NewsRow, ReviewCard } from "@/components/NewsComponents";
 import { Sidebar } from "@/components/Sidebar";
-import gamingDoodles from "@/assets/gaming-doodles.png.asset.json";
 import { useSiteContent, type CategoryItemContent } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
 
