@@ -103,9 +103,11 @@ function Index() {
             </div>
 
             <div className="flex justify-center mt-10">
-              <button className="group relative inline-flex items-center gap-3 bg-gradient-to-b from-[#FFD83D] to-[#F5C518] hover:from-[#FFE055] hover:to-[#E8B810] text-black text-[11px] font-black uppercase tracking-[0.2em] px-8 py-4 rounded-md shadow-[0_6px_0_0_#9A7A0E,0_10px_20px_-6px_rgba(245,197,24,0.6)] hover:shadow-[0_4px_0_0_#9A7A0E,0_8px_16px_-6px_rgba(245,197,24,0.7)] hover:translate-y-[2px] active:translate-y-[6px] active:shadow-[0_0_0_0_#9A7A0E] transition-all duration-150 border border-black/10">
-                <span className="relative">Ver mais notícias</span>
-                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full border-[1.5px] border-black/70 group-hover:bg-black/10 group-hover:translate-x-1 transition-all">
+              <button className="group relative inline-flex items-center gap-3 overflow-hidden bg-gradient-to-b from-[#FFE36B] via-[#FFD22E] to-[#E8B30A] hover:from-[#FFEC8A] hover:via-[#FFD83D] hover:to-[#D9A500] text-black text-[11px] font-black uppercase tracking-[0.22em] px-9 py-4 rounded-lg border border-[#A87E0A] shadow-[inset_0_1px_0_rgba(255,255,255,0.6),inset_0_-2px_0_rgba(0,0,0,0.15),0_6px_0_0_#8A6708,0_12px_24px_-8px_rgba(245,197,24,0.65)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-2px_0_rgba(0,0,0,0.15),0_4px_0_0_#8A6708,0_10px_20px_-8px_rgba(245,197,24,0.75)] hover:translate-y-[2px] active:translate-y-[6px] active:shadow-[inset_0_1px_0_rgba(255,255,255,0.5),inset_0_-1px_0_rgba(0,0,0,0.15),0_0_0_0_#8A6708] transition-all duration-150">
+                <span className="pointer-events-none absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/55 to-transparent rounded-t-lg" />
+                <span className="pointer-events-none absolute -inset-y-2 -left-1/3 w-1/3 rotate-12 bg-gradient-to-r from-transparent via-white/60 to-transparent blur-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-[420%] transition-all duration-700 ease-out" />
+                <span className="relative drop-shadow-[0_1px_0_rgba(255,255,255,0.35)]">Ver mais notícias</span>
+                <span className="relative inline-flex items-center justify-center w-6 h-6 rounded-full border-[1.5px] border-black/70 group-hover:bg-black/15 group-hover:translate-x-1 transition-all duration-200">
                   <ArrowRight className="w-3 h-3" strokeWidth={3} />
                 </span>
               </button>
