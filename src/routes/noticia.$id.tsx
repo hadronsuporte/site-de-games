@@ -102,8 +102,8 @@ function NewsDetail() {
         )}
       >
         <main className="bg-background">
-          <article className="container mx-auto px-4 py-8 max-w-4xl">
-            <div className="flex items-center gap-4 mb-6 flex-wrap">
+          <article className="container mx-auto px-4 py-8">
+            <div className="flex items-center gap-4 mb-8 flex-wrap max-w-[990px] mx-auto">
               <Link
                 to="/"
                 className="inline-flex items-center gap-2 text-foreground/70 hover:text-flow-yellow text-xs font-black uppercase tracking-widest transition-colors"
@@ -111,77 +111,88 @@ function NewsDetail() {
                 <ArrowLeft className="w-4 h-4" />
                 Voltar
               </Link>
-              <span className="inline-block bg-flow-yellow text-black text-[11px] font-black px-3 py-1.5 uppercase tracking-widest">
-                {news.category}
-              </span>
             </div>
 
+            {/* Layered hero */}
+            <div className="mx-auto max-w-[990px]">
+              {/* Image + yellow plate */}
+              <div className="relative z-20 mx-auto w-full max-w-[840px]">
+                <div
+                  aria-hidden
+                  className="absolute inset-0 translate-x-2 translate-y-2 sm:translate-x-3 sm:translate-y-3 md:translate-x-4 md:translate-y-5 bg-flow-yellow rounded-sm -z-10"
+                />
+                <figure className="relative h-[200px] sm:h-[260px] md:h-[340px] overflow-hidden rounded-sm bg-muted/30 shadow-2xl">
+                  <img
+                    src={news.image}
+                    alt={news.title}
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: "center 20%" }}
+                  />
+                </figure>
+              </div>
 
-            {/* Title */}
-            <h1 className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black italic tracking-tighter leading-[1.1] mb-4">
-              {news.title}
-            </h1>
-
-            {/* Summary */}
-            {news.summary && (
-              <p className="text-foreground/80 text-base md:text-lg font-medium leading-relaxed mb-6">
-                {news.summary}
-              </p>
-            )}
-
-            {/* Author / date / share */}
-            <div className="flex items-center justify-between flex-wrap gap-4 pb-6 mb-6 border-b border-border">
-              <div className="flex items-center gap-4 text-foreground/70 text-xs font-black uppercase tracking-widest">
-                <span className="flex items-center gap-2">
-                  <User className="w-4 h-4 text-flow-yellow" />
-                  Por {news.author ?? "Redação"}
+              {/* Content panel overlapping bottom of image */}
+              <div className="relative z-10 -mt-10 sm:-mt-14 md:-mt-20 bg-card text-card-foreground rounded-sm shadow-xl px-5 sm:px-8 md:px-12 pt-16 sm:pt-20 md:pt-28 pb-10">
+                {/* Category */}
+                <span className="inline-block bg-flow-yellow text-black text-[11px] font-black px-3 py-1.5 uppercase tracking-widest mb-4">
+                  {news.category}
                 </span>
-                {news.date && (
-                  <span className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-flow-yellow" />
-                    {news.date}
-                  </span>
+
+                {/* Title */}
+                <h1 className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black italic tracking-tighter leading-[1.1] mb-4">
+                  {news.title}
+                </h1>
+
+                {/* Summary */}
+                {news.summary && (
+                  <p className="text-foreground/80 text-base md:text-lg font-medium leading-relaxed mb-6">
+                    {news.summary}
+                  </p>
                 )}
-              </div>
-              <div className="flex items-center gap-2">
-                <a
-                  href="#"
-                  className="w-9 h-9 rounded-full bg-flow-yellow flex items-center justify-center text-black hover:scale-110 transition-transform"
-                  aria-label="Compartilhar no Twitter"
-                >
-                  <Twitter className="w-4 h-4" fill="currentColor" />
-                </a>
-                <a
-                  href="#"
-                  className="w-9 h-9 rounded-full bg-flow-yellow flex items-center justify-center text-black hover:scale-110 transition-transform"
-                  aria-label="Compartilhar no WhatsApp"
-                >
-                  <MessageCircle className="w-4 h-4" fill="currentColor" />
-                </a>
-                <a
-                  href="#"
-                  className="w-9 h-9 rounded-full bg-flow-yellow flex items-center justify-center text-black hover:scale-110 transition-transform"
-                  aria-label="Compartilhar no Facebook"
-                >
-                  <Facebook className="w-4 h-4" fill="currentColor" />
-                </a>
+
+                {/* Author / date / share */}
+                <div className="flex items-center justify-between flex-wrap gap-4 pt-5 border-t border-border">
+                  <div className="flex items-center gap-4 text-foreground/70 text-xs font-black uppercase tracking-widest">
+                    <span className="flex items-center gap-2">
+                      <User className="w-4 h-4 text-flow-yellow" />
+                      Por {news.author ?? "Redação"}
+                    </span>
+                    {news.date && (
+                      <span className="flex items-center gap-2">
+                        <Clock className="w-4 h-4 text-flow-yellow" />
+                        {news.date}
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="#"
+                      className="w-9 h-9 rounded-full bg-flow-yellow flex items-center justify-center text-black hover:scale-110 transition-transform"
+                      aria-label="Compartilhar no Twitter"
+                    >
+                      <Twitter className="w-4 h-4" fill="currentColor" />
+                    </a>
+                    <a
+                      href="#"
+                      className="w-9 h-9 rounded-full bg-flow-yellow flex items-center justify-center text-black hover:scale-110 transition-transform"
+                      aria-label="Compartilhar no WhatsApp"
+                    >
+                      <MessageCircle className="w-4 h-4" fill="currentColor" />
+                    </a>
+                    <a
+                      href="#"
+                      className="w-9 h-9 rounded-full bg-flow-yellow flex items-center justify-center text-black hover:scale-110 transition-transform"
+                      aria-label="Compartilhar no Facebook"
+                    >
+                      <Facebook className="w-4 h-4" fill="currentColor" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-
-            {/* Banner image — cropped, constrained */}
-            <figure className="mb-8 mx-auto rounded-sm overflow-hidden bg-muted/30 w-full max-w-[840px] h-[200px] sm:h-[240px] md:h-[340px]">
-              <img
-                src={news.image}
-                alt={news.title}
-                className="w-full h-full object-cover"
-                style={{ objectPosition: "center 20%" }}
-              />
-            </figure>
-
-
 
             {/* Body */}
-            <div className="prose prose-invert max-w-none">
+            <div className="prose prose-invert max-w-[840px] mx-auto mt-10">
               <p className="text-base md:text-lg leading-relaxed text-foreground/90 mb-5">
                 {news.summary ??
                   "Esta é uma notícia em destaque no Games4Gamers. O conteúdo completo desta matéria estará disponível em breve."}
@@ -193,6 +204,7 @@ function NewsDetail() {
             </div>
           </article>
         </main>
+
         <Footer settings={content.settings} sections={content.footerSections} />
       </div>
     </div>
