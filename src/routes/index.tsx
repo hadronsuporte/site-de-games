@@ -16,9 +16,6 @@ function Index() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const { content } = useSiteContent();
 
-  const featuredVideos = content.videos.slice(0, 2);
-  const sideVideos = content.videos.slice(2, 5);
-
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-flow-yellow selection:text-black flex transition-colors duration-300">
       <Sidebar
