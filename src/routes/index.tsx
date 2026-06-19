@@ -52,6 +52,7 @@ function Index() {
                 {content.latestNews.map((item) => (
                   <NewsRow
                     key={item.id}
+                    id={item.id}
                     category={item.category}
                     title={item.title}
                     summary={item.summary}
