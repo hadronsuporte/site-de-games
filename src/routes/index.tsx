@@ -103,11 +103,9 @@ function Index() {
             </div>
 
             <div className="flex justify-center mt-10">
-              <button className="inline-flex items-center gap-3 bg-gradient-to-b from-[#FFE873] to-[#E5C020] hover:from-[#FFF0A3] hover:to-[#D4B01A] text-black text-xs font-bold uppercase tracking-widest px-8 py-3.5 rounded-xl border border-[#C9A91A] shadow-[0_4px_0_0_#B8951A,0_8px_16px_-4px_rgba(230,190,30,0.5)] hover:shadow-[0_2px_0_0_#B8951A,0_6px_12px_-4px_rgba(230,190,30,0.6)] hover:translate-y-[2px] active:translate-y-[4px] active:shadow-none transition-all duration-150">
+              <button className="inline-flex items-center gap-3 bg-[#FFD60A] hover:bg-[#FFC700] text-black text-sm font-bold uppercase tracking-wider px-8 py-3 transition-colors duration-150">
                 <span>Ver mais notícias</span>
-                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full border border-black/60">
-                  <ArrowRight className="w-3 h-3" strokeWidth={2.5} />
-                </span>
+                <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
               </button>
             </div>
           </section>
