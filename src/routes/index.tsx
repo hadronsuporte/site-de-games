@@ -150,7 +150,12 @@ function CategorySection({
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] gap-6 lg:gap-8 pb-6 border-b border-border">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:border-r lg:border-border lg:pr-8">
           {bigCards.map((item) => (
-            <article key={item.id} className="group cursor-pointer">
+            <Link
+              key={item.id}
+              to="/noticia/$id"
+              params={{ id: item.id }}
+              className="group cursor-pointer block"
+            >
               <div className="relative aspect-video overflow-hidden rounded-sm bg-muted mb-3">
                 <img
                   src={item.image}
@@ -162,7 +167,7 @@ function CategorySection({
               <h3 className="text-sm sm:text-[15px] font-black italic leading-snug tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-2">
                 {item.title}
               </h3>
-            </article>
+            </Link>
           ))}
           <div className="sm:col-span-2 pt-2">
             <a className="inline-flex items-center gap-2 text-foreground/80 hover:text-[#F5C518] text-[11px] font-black uppercase tracking-widest cursor-pointer transition-colors">
@@ -174,7 +179,12 @@ function CategorySection({
 
         <div className="space-y-4">
           {sideList.map((item) => (
-            <article key={item.id} className="group cursor-pointer flex items-start gap-3">
+            <Link
+              key={item.id}
+              to="/noticia/$id"
+              params={{ id: item.id }}
+              className="group cursor-pointer flex items-start gap-3"
+            >
               <div className="relative w-28 sm:w-32 aspect-video flex-shrink-0 overflow-hidden rounded-sm bg-muted">
                 <img
                   src={item.image}
@@ -188,7 +198,7 @@ function CategorySection({
                   {item.title}
                 </h4>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>
