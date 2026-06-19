@@ -72,6 +72,7 @@ function Index() {
                   {content.reviews.map((item) => (
                     <ReviewCard
                       key={item.id}
+                      id={item.id}
                       score={item.score}
                       title={item.title}
                       image={item.image}
