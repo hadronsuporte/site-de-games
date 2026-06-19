@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Play, Zap } from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
 import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
 import { Footer } from "@/components/Footer";
 import { MostReadCard, NewsRow, ReviewCard } from "@/components/NewsComponents";
 import { Sidebar } from "@/components/Sidebar";
-import gamingDoodles from "@/assets/gaming-doodles.png.asset.json";
 import { useSiteContent, type CategoryItemContent } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
 
@@ -16,9 +15,6 @@ export const Route = createFileRoute("/")({
 function Index() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const { content } = useSiteContent();
-
-  const featuredVideos = content.videos.slice(0, 2);
-  const sideVideos = content.videos.slice(2, 5);
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-flow-yellow selection:text-black flex transition-colors duration-300">
@@ -116,108 +112,6 @@ function Index() {
             </div>
           </section>
 
-          <section id="videos" className="relative bg-[#F5C518] py-12 mb-16 overflow-hidden">
-            <div
-              className="absolute inset-0 opacity-25 pointer-events-none mix-blend-multiply"
-              style={{
-                backgroundImage: `url("${gamingDoodles.url}")`,
-                backgroundSize: "600px auto",
-                backgroundRepeat: "repeat",
-              }}
-            />
-            <div className="container mx-auto px-4 relative">
-              <div className="flex items-center gap-2 mb-6">
-                <Zap
-                  className="w-4 h-4 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
-                  fill="currentColor"
-                />
-                <h2 className="text-lg font-black italic tracking-tighter uppercase text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
-                  Podcasts e Vídeos
-                </h2>
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)] gap-6">
-                {featuredVideos.map((item, index) => (
-                  <a
-                    className="group block cursor-pointer"
-                    href={item.url}
-                    key={item.id}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <div className="relative aspect-video overflow-hidden rounded-sm bg-black mb-3">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <span className="absolute top-2 left-2 bg-black text-[#F5C518] text-[9px] font-black px-2 py-1 rounded-sm uppercase tracking-widest">
-                        {item.category}
-                      </span>
-                      <span className="absolute right-2 bottom-2 bg-black/80 text-white text-[10px] font-black px-2 py-1 rounded-sm">
-                        {item.duration}
-                      </span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="flex items-center justify-center w-7 h-7 bg-white rounded-full shrink-0 mt-0.5 shadow-md">
-                        <Play className="w-3 h-3 text-black fill-black ml-0.5" />
-                      </span>
-                      <h3 className="text-[13px] font-black italic uppercase tracking-tight text-white leading-snug group-hover:underline drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
-                        {item.title}
-                      </h3>
-                    </div>
-
-                    {index === 1 && (
-                      <span className="group/yt inline-flex items-center gap-2.5 mt-6 text-white text-[11px] font-black italic uppercase tracking-widest hover:text-white cursor-pointer drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
-                        <span className="flex items-center justify-center w-8 h-6 bg-[#FF0000] rounded-md shadow-md group-hover/yt:scale-110 transition-transform">
-                          <Play className="w-3 h-3 text-white fill-white ml-0.5" />
-                        </span>
-                        <span className="group-hover/yt:underline">
-                          Acesse nosso canal no YouTube
-                        </span>
-                        <ArrowRight
-                          className="w-3.5 h-3.5 group-hover/yt:translate-x-1 transition-transform"
-                          strokeWidth={3}
-                        />
-                      </span>
-                    )}
-                  </a>
-                ))}
-
-                <div className="space-y-4">
-                  {sideVideos.map((item) => (
-                    <a
-                      key={item.id}
-                      className="group flex cursor-pointer items-start gap-3"
-                      href={item.url}
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      <div className="relative w-28 sm:w-32 aspect-video flex-shrink-0 overflow-hidden rounded-sm bg-black">
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          loading="lazy"
-                        />
-                        <span className="absolute right-1 bottom-1 bg-black/80 text-white text-[9px] font-black px-1.5 py-0.5 rounded-sm">
-                          {item.duration}
-                        </span>
-                      </div>
-                      <div className="flex flex-col min-w-0">
-                        <span className="text-[10px] font-black uppercase tracking-widest text-white/90 mb-1 drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]">
-                          {item.category}
-                        </span>
-                        <h4 className="text-[12px] font-black italic uppercase leading-snug tracking-tight text-white group-hover:underline line-clamp-3 drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
-                          {item.title}
-                        </h4>
-                      </div>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
 
           {content.categorySections.map((section) => (
             <CategorySection
