@@ -33,7 +33,7 @@ export function SidebarItem({ icon, label, active, collapsed, href = "#" }: Side
         <span
           className={cn(
             "text-sm font-bold uppercase tracking-tight italic",
-            active ? "text-accent-foreground" : "text-muted-foreground group-hover:text-foreground",
+            active ? "text-foreground" : "text-muted-foreground group-hover:text-foreground",
           )}
         >
           {label}
