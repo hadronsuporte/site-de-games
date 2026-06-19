@@ -16,7 +16,7 @@ export function SidebarItem({ icon, label, active, collapsed, href = "#" }: Side
       className={cn(
         "flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer transition-all duration-200 group",
         active
-          ? "bg-accent text-accent-foreground"
+          ? "bg-muted text-foreground"
           : "text-muted-foreground hover:bg-muted hover:text-foreground",
         collapsed && "justify-center px-0",
       )}
@@ -24,7 +24,7 @@ export function SidebarItem({ icon, label, active, collapsed, href = "#" }: Side
       <div
         className={cn(
           "flex-shrink-0 transition-colors",
-          active ? "text-accent-foreground" : "text-muted-foreground group-hover:text-foreground",
+          active ? "text-foreground" : "text-muted-foreground group-hover:text-foreground",
         )}
       >
         {icon}
@@ -33,7 +33,7 @@ export function SidebarItem({ icon, label, active, collapsed, href = "#" }: Side
         <span
           className={cn(
             "text-sm font-bold uppercase tracking-tight italic",
-            active ? "text-accent-foreground" : "text-muted-foreground group-hover:text-foreground",
+            active ? "text-foreground" : "text-muted-foreground group-hover:text-foreground",
           )}
         >
           {label}
