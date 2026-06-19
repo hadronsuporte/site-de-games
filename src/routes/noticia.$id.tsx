@@ -103,18 +103,19 @@ function NewsDetail() {
       >
         <main className="bg-background">
           <article className="container mx-auto px-4 py-8 max-w-4xl">
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 text-foreground/70 hover:text-flow-yellow text-xs font-black uppercase tracking-widest mb-6 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Voltar
-            </Link>
+            <div className="flex items-center gap-4 mb-6 flex-wrap">
+              <Link
+                to="/"
+                className="inline-flex items-center gap-2 text-foreground/70 hover:text-flow-yellow text-xs font-black uppercase tracking-widest transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Voltar
+              </Link>
+              <span className="inline-block bg-flow-yellow text-black text-[11px] font-black px-3 py-1.5 uppercase tracking-widest">
+                {news.category}
+              </span>
+            </div>
 
-            {/* Category */}
-            <span className="inline-block bg-flow-yellow text-black text-[11px] font-black px-3 py-1.5 uppercase tracking-widest mb-4">
-              {news.category}
-            </span>
 
             {/* Title */}
             <h1 className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black italic tracking-tighter leading-[1.1] mb-4">
