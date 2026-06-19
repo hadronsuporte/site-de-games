@@ -168,15 +168,16 @@ function NewsDetail() {
               </div>
             </div>
 
-            {/* Image — full image, no crop */}
-            <figure className="mb-8 bg-muted/30 rounded-sm overflow-hidden">
+            {/* Banner image — cropped */}
+            <figure className="mb-8 rounded-sm overflow-hidden bg-muted/30 aspect-[4/3] md:aspect-[16/9]">
               <img
                 src={news.image}
                 alt={news.title}
-                style={{ width: "100%", height: "auto", objectFit: "contain", objectPosition: "center top" }}
-                className="block mx-auto"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: "center 20%" }}
               />
             </figure>
+
 
             {/* Body */}
             <div className="prose prose-invert max-w-none">
