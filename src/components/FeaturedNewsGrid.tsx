@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import type { FeaturedNewsContent } from "@/lib/site-content";
 
 interface FeaturedNewsGridProps {
@@ -9,9 +10,11 @@ export function FeaturedNewsGrid({ news }: FeaturedNewsGridProps) {
     <section className="container mx-auto px-4 mb-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {news.slice(0, 4).map((item) => (
-          <article
+          <Link
             key={item.id}
-            className="group relative h-[380px] md:h-[420px] lg:h-[450px] overflow-hidden rounded-md cursor-pointer transition-all duration-300"
+            to="/noticia/$id"
+            params={{ id: item.id }}
+            className="group relative h-[380px] md:h-[420px] lg:h-[450px] overflow-hidden rounded-md cursor-pointer transition-all duration-300 block"
           >
             <img
               src={item.image}
@@ -32,7 +35,7 @@ export function FeaturedNewsGrid({ news }: FeaturedNewsGridProps) {
                 {item.title}
               </h3>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
     </section>
