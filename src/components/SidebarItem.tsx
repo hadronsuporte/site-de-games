@@ -24,7 +24,7 @@ export function SidebarItem({ icon, label, active, collapsed, href = "#" }: Side
       <div
         className={cn(
           "flex-shrink-0 transition-colors",
-          active ? "text-accent-foreground" : "text-muted-foreground group-hover:text-foreground",
+          active ? "text-foreground" : "text-muted-foreground group-hover:text-foreground",
         )}
       >
         {icon}
