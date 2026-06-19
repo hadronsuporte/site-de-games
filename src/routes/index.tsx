@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Zap } from "lucide-react";
 import { FeaturedNewsGrid } from "@/components/FeaturedNewsGrid";
 import { Footer } from "@/components/Footer";
