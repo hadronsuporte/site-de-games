@@ -93,6 +93,7 @@ function Index() {
                     {content.mostRead.map((item) => (
                       <MostReadCard
                         key={item.id}
+                        id={item.id}
                         category={item.category}
                         title={item.title}
                         author={item.author}
