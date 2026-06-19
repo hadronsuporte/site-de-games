@@ -1,6 +1,8 @@
+import { Link } from "@tanstack/react-router";
 import { Clock, User } from "lucide-react";
 
 interface NewsCardProps {
+  id?: string;
   category: string;
   title: string;
   author: string;
@@ -9,10 +11,19 @@ interface NewsCardProps {
   horizontal?: boolean;
 }
 
-export function NewsCard({ category, title, author, date, image, horizontal }: NewsCardProps) {
+function CardLink({ id, children, className }: { id?: string; children: React.ReactNode; className?: string }) {
+  if (!id) return <div className={className}>{children}</div>;
+  return (
+    <Link to="/noticia/$id" params={{ id }} className={className}>
+      {children}
+    </Link>
+  );
+}
+
+export function NewsCard({ id, category, title, author, date, image, horizontal }: NewsCardProps) {
   if (horizontal) {
     return (
-      <div className="group flex gap-5 cursor-pointer items-start">
+      <CardLink id={id} className="group flex gap-5 cursor-pointer items-start">
         <div className="relative w-36 aspect-video flex-shrink-0 overflow-hidden rounded-sm">
           <img
             src={image}
@@ -28,12 +39,12 @@ export function NewsCard({ category, title, author, date, image, horizontal }: N
             {title}
           </h3>
         </div>
-      </div>
+      </CardLink>
     );
   }
 
   return (
-    <div className="group cursor-pointer">
+    <CardLink id={id} className="group cursor-pointer block">
       <div className="relative aspect-video overflow-hidden rounded-sm mb-4">
         <img
           src={image}
@@ -59,7 +70,7 @@ export function NewsCard({ category, title, author, date, image, horizontal }: N
           <span>{date}</span>
         </div>
       </div>
-    </div>
+    </CardLink>
   );
 }
 
@@ -111,6 +122,7 @@ export function HeroBanner({ category, title, summary, author, date, image }: He
 }
 
 interface NewsRowProps {
+  id?: string;
   category: string;
   title: string;
   summary?: string;
@@ -119,52 +131,62 @@ interface NewsRowProps {
   image: string;
 }
 
-export function NewsRow({ category, title, summary, author, date, image }: NewsRowProps) {
-  return (
-    <article className="group cursor-pointer py-5 border-b border-border last:border-b-0">
-      <div className="grid grid-cols-[110px_minmax(0,1fr)] sm:grid-cols-[160px_minmax(0,1fr)] gap-4 sm:gap-5">
-        <div className="relative aspect-video overflow-hidden rounded-sm bg-muted">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            loading="lazy"
-          />
-        </div>
-        <div className="flex flex-col min-w-0">
-          <span className="text-[10px] font-black uppercase tracking-widest mb-1.5 text-[#F5C518]">
-            {category}
+export function NewsRow({ id, category, title, summary, author, date, image }: NewsRowProps) {
+  const content = (
+    <div className="grid grid-cols-[110px_minmax(0,1fr)] sm:grid-cols-[160px_minmax(0,1fr)] gap-4 sm:gap-5">
+      <div className="relative aspect-video overflow-hidden rounded-sm bg-muted">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          loading="lazy"
+        />
+      </div>
+      <div className="flex flex-col min-w-0">
+        <span className="text-[10px] font-black uppercase tracking-widest mb-1.5 text-[#F5C518]">
+          {category}
+        </span>
+        <h3 className="text-sm sm:text-base md:text-lg font-black italic leading-[1.25] tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3 mb-3 max-w-[28ch] sm:max-w-[30ch] md:max-w-[32ch]">
+          {title}
+        </h3>
+        {summary && (
+          <p className="hidden text-xs font-semibold leading-relaxed text-muted-foreground line-clamp-2 sm:block">
+            {summary}
+          </p>
+        )}
+        <div className="mt-auto pt-2.5 border-t border-border/70 flex items-center justify-between gap-3 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+          <span className="flex items-center gap-1.5 truncate">
+            <span className="inline-block w-2 h-2 bg-[#F5C518]" />
+            <span className="truncate">Por {author}</span>
           </span>
-          <h3 className="text-sm sm:text-base md:text-lg font-black italic leading-[1.25] tracking-tight text-foreground group-hover:text-flow-yellow transition-colors line-clamp-3 mb-3 max-w-[28ch] sm:max-w-[30ch] md:max-w-[32ch]">
-            {title}
-          </h3>
-          {summary && (
-            <p className="hidden text-xs font-semibold leading-relaxed text-muted-foreground line-clamp-2 sm:block">
-              {summary}
-            </p>
-          )}
-          <div className="mt-auto pt-2.5 border-t border-border/70 flex items-center justify-between gap-3 text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-muted-foreground">
-            <span className="flex items-center gap-1.5 truncate">
-              <span className="inline-block w-2 h-2 bg-[#F5C518]" />
-              <span className="truncate">Por {author}</span>
-            </span>
-            <span className="shrink-0">{date}</span>
-          </div>
+          <span className="shrink-0">{date}</span>
         </div>
       </div>
-    </article>
+    </div>
   );
+
+  const className = "group cursor-pointer py-5 border-b border-border last:border-b-0 block";
+
+  if (id) {
+    return (
+      <Link to="/noticia/$id" params={{ id }} className={className}>
+        {content}
+      </Link>
+    );
+  }
+  return <article className={className}>{content}</article>;
 }
 
 interface ReviewCardProps {
+  id?: string;
   score: string;
   title: string;
   image: string;
 }
 
-export function ReviewCard({ score, title, image }: ReviewCardProps) {
+export function ReviewCard({ id, score, title, image }: ReviewCardProps) {
   return (
-    <article className="group cursor-pointer flex items-start gap-3">
+    <CardLink id={id} className="group cursor-pointer flex items-start gap-3">
       <div className="relative w-28 sm:w-32 aspect-video flex-shrink-0 overflow-hidden rounded-sm bg-muted">
         <img
           src={image}
@@ -184,20 +206,21 @@ export function ReviewCard({ score, title, image }: ReviewCardProps) {
           {title}
         </h4>
       </div>
-    </article>
+    </CardLink>
   );
 }
 
 interface MostReadCardProps {
+  id?: string;
   category: string;
   title: string;
   author: string;
   image: string;
 }
 
-export function MostReadCard({ category, title, author, image }: MostReadCardProps) {
+export function MostReadCard({ id, category, title, author, image }: MostReadCardProps) {
   return (
-    <article className="group cursor-pointer flex items-start gap-3">
+    <CardLink id={id} className="group cursor-pointer flex items-start gap-3">
       <div className="flex flex-col min-w-0 flex-1 pt-0.5">
         <span className="text-[10px] font-black uppercase tracking-widest text-[#F5C518] mb-1">
           {category}
@@ -218,6 +241,6 @@ export function MostReadCard({ category, title, author, image }: MostReadCardPro
           loading="lazy"
         />
       </div>
-    </article>
+    </CardLink>
   );
 }
