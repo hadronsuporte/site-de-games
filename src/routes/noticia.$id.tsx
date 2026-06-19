@@ -103,18 +103,19 @@ function NewsDetail() {
       >
         <main className="bg-background">
           <article className="container mx-auto px-4 py-8 max-w-4xl">
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 text-foreground/70 hover:text-flow-yellow text-xs font-black uppercase tracking-widest mb-6 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Voltar
-            </Link>
+            <div className="flex items-center gap-4 mb-6 flex-wrap">
+              <Link
+                to="/"
+                className="inline-flex items-center gap-2 text-foreground/70 hover:text-flow-yellow text-xs font-black uppercase tracking-widest transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Voltar
+              </Link>
+              <span className="inline-block bg-flow-yellow text-black text-[11px] font-black px-3 py-1.5 uppercase tracking-widest">
+                {news.category}
+              </span>
+            </div>
 
-            {/* Category */}
-            <span className="inline-block bg-flow-yellow text-black text-[11px] font-black px-3 py-1.5 uppercase tracking-widest mb-4">
-              {news.category}
-            </span>
 
             {/* Title */}
             <h1 className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black italic tracking-tighter leading-[1.1] mb-4">
@@ -167,15 +168,16 @@ function NewsDetail() {
               </div>
             </div>
 
-            {/* Image — full image, no crop */}
-            <figure className="mb-8 bg-muted/30 rounded-sm overflow-hidden">
+            {/* Banner image — cropped */}
+            <figure className="mb-8 rounded-sm overflow-hidden bg-muted/30 aspect-[4/3] md:aspect-[16/9]">
               <img
                 src={news.image}
                 alt={news.title}
-                style={{ width: "100%", height: "auto", objectFit: "contain", objectPosition: "center top" }}
-                className="block mx-auto"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: "center 20%" }}
               />
             </figure>
+
 
             {/* Body */}
             <div className="prose prose-invert max-w-none">
