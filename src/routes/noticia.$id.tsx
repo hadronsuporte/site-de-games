@@ -168,8 +168,8 @@ function NewsDetail() {
               </div>
             </div>
 
-            {/* Banner image — cropped */}
-            <figure className="mb-8 rounded-sm overflow-hidden bg-muted/30 aspect-[4/3] md:aspect-[16/9]">
+            {/* Banner image — cropped, constrained */}
+            <figure className="mb-8 mx-auto rounded-sm overflow-hidden bg-muted/30 w-full max-w-[840px] h-[200px] sm:h-[240px] md:h-[340px]">
               <img
                 src={news.image}
                 alt={news.title}
@@ -177,6 +177,7 @@ function NewsDetail() {
                 style={{ objectPosition: "center 20%" }}
               />
             </figure>
+
 
 
             {/* Body */}
